@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produto</title>
+    <style>
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"], 
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-group input[type="file"] {
+            padding: 0;
+        }
+        .form-group .image-preview {
+            margin-top: 10px;
+        }
+        .form-group .image-preview img {
+            max-width: 100%;
+            height: auto;
+        }
+        .buttons {
+            text-align: center;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            margin: 5px;
+            
+            cursor: pointer;
+        }
+        .buttons .save-btn {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .buttons .cancel-btn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Produto</h1>
+        <form>
+            <div class="form-group">
+                <label for="product-name">Nome do Produto</label>
+                <input type="text" id="product-name" placeholder="Digite o nome do produto" required>
+            </div>
+            <div class="form-group">
+                <label for="product-value">Valor</label>
+                <input type="number" id="product-value" placeholder="Digite o valor do produto" required>
+            </div>
+            <div class="form-group">
+                <label for="product-quantity">Quantidade</label>
+                <input type="number" id="product-quantity" placeholder="Digite a quantidade disponível" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="product-quantitye">Imagem do Produto</label>
+                <input type="file" id="product-image" accept="image/jpeg, image/png" onchange="previewImage(event)">
+                <div class="image-preview" id="image-preview"></div>
+                <small>Selecione uma imagem do produto (máximo de 5MB)</small>
+            </div>
+            <div class="buttons">
+                <button type="submit" class="save-btn">Salvar</button>
+                <button type="button" class="cancel-btn">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+//parte que aparece a imagem que você escolheu
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById('image-preview');
+            preview.innerHTML = '';
+            if (file) {
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
+                img.onload = () => URL.revokeObjectURL(img.src);
+                preview.appendChild(img);
+            }
+        }
+    </script>
+</body>
+</html>

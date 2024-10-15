@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login angel lock</title>
+    <!--
+    <link rel="stylesheet" href="assets/css/adm_produto.css">
+    -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" type="imagex/png" href="assets/img/angelock-favicon.ico">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="grid-logo">
+            <a href="index.html"><img src="assets/img/Logo.svg" class="logo"></a>
+
+        </div>
+        <!--
+        <div class="grid-search">
+            <input type="search" class="pesquisa" placeholder="Pesquise produtos aqui">
+            <button class="btn-source"><img src="assets/img/svgs/search-btn.svg" class="search"></button>
+        </div>
+        <div class="grid-login">
+            <a href="login.html" class="btn-login">Login</a>
+            <a href="cadastro.html" class="btn-cadastro">Cadastro</a>
+        </div>
+        -->
+
+    </header>
+
+
+    <!--
+    <nav class="nav">
+        <button class="menu-btn"><img src="assets/img/svgs/menu-btn.svg" class="search"></button>
+        <a class="btn-prod" href="#">Câmera</a>
+        <a class="btn-prod" href="#">Alarme</a>
+        <a class="btn-prod" href="#">Concertina</a>
+        <a class="btn-prod" href="#">Cerca Elétrica</a>
+        <a class="btn-prod" href="#">DVR</a>
+    </nav>
+     -->
+
+
+    <div class="container-conta">
+        <div class="conta-login">
+            <div class="text1">
+                <h2>Cadastre seu produto </h2>
+            </div>
+            <form class="cadastro" action="backend/models/adm.php" method="post" enctype="multipart/form-data">
+                <!--aqui o action é pra ir o link do php-->
+
+                <div class="">
+                    <label for="nome">Nome do Produto</label>
+                    <input class="imput-login" placeholder="Digite o nome do produto aqui" type="text" id="produto"
+                        name="produto" required>
+                </div>
+
+                <div class=""></div>
+                <label for="nome">Categoria do Produto</label>
+
+                <select class="imput-login" id="categoria" name="categoria" required>
+                    <option value="camera">câmera</option>
+                    <option value="alarme">alarme</option>
+                    <option value="concertina">concertina</option>
+                    <option value="cerca_eletrica">cerca elétrica</option>
+                    <option value="dvr">dvr</option>
+                </select>
+        </div>
+
+
+        <div class="">
+            <label for="valor">Valor</label>
+            <input class="imput-login" placeholder="Digite o preço do produto" type="text" id="preco" name="preco"
+                required>
+        </div>
+
+        <div class="">
+            <label for="qtd">Quantidade</label>
+            <input class="imput-login" placeholder="Digite a quantidade" type="number" id="qtd" name="qtd" required>
+        </div>
+
+        <div class="">
+            <label for="img">Imagem</label>
+            <input class="imput-login" placeholder="Insira a imagem aqui" type="file" id="img" name="img"
+                accept="image/*" required>
+        </div>
+
+        <input class="btn-cad" type="submit" value="Cadastrar Produto">
+    </div>
+
+
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Informações</h3>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Contato</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Ajuda</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Entrega e Devolução</a></li>
+                    <li><a href="#">Rastreamento de Pedido</a></li>
+                    <li><a href="#">Atendimento ao Cliente</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Produtos</h3>
+                <ul>
+                    <li><a href="#">Novidades</a></li>
+                    <li><a href="#">Mais Vendidos</a></li>
+                    <li><a href="#">Ofertas Especiais</a></li>
+                    <li><a href="#">Categorias</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
