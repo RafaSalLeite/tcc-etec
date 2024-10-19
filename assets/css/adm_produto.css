@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-
 body {
     margin: 0;
     padding: 0;
@@ -17,14 +16,12 @@ body {
     position: sticky;
 }
 
-
 .logo {
     width: 19rem;
     height: auto;
-
 }
 
-.grid-logo{
+.grid-logo {
     padding-left: 4rem;
     display: flex;
     justify-content: start;
@@ -40,21 +37,18 @@ body {
     border-radius: 8px 0 0px 8px;
     color: white;
     padding-inline: 1rem;
-
 }
 
 .pesquisa::placeholder {
     color: white;
-
 }
 
 .search {
     height: 1.4rem;
     width: 1.4rem;
-
 }
 
-.grid-search{
+.grid-search {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,11 +90,14 @@ body {
     border-radius: 0px 8px 8px 0px;
     cursor: pointer;
 }
-.grid-login{
+
+.grid-login {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+
 
 .nav {
     display: flex;
@@ -147,11 +144,7 @@ a:hover {
     font-size: 3rem;
 }
 
-.cadastro {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+
 
 .nome-sobrenome,
 .senha {
@@ -163,13 +156,10 @@ a:hover {
     flex: 1;
 }
 
-
 label {
-    display: relative;
-    margin-bottom: 0.5rem;
+    font-size: 15px;
     color: #ffffff;
 }
-
 
 input {
     width: 100%;
@@ -185,14 +175,14 @@ input:placeholder-shown {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1rem;
 }
 
-
 .btn-cad {
-    width: 100%;
+    width: 20rem;
     padding: 0.75rem;
+    height: 3rem;
     border: none;
     border-radius: 1rem;
     background: linear-gradient(91.53deg, #231EFF 0%, #2900CD 100%);
@@ -203,7 +193,10 @@ input:placeholder-shown {
     line-height: 2rem;
     cursor: pointer;
     margin-top: 1rem;
+    grid-column: 1 / 3;
 }
+
+
 
 .conta-ent {
     margin-top: 0.7rem;
@@ -215,20 +208,17 @@ input:placeholder-shown {
     color: #ffffff;
 }
 
-
 footer {
-    background-color:#0F0E0E;
+    background-color: #0F0E0E;
     padding: 20px;
     margin-top: 6rem;
-   
 }
-
 
 .footer-container {
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-top: 2rem;
 }
 
@@ -268,35 +258,81 @@ footer {
     color: #8d8d8d;
 }
 
+option {
+    color: black;
+}
+
 .conta-login {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 5rem;
     margin-top: 3rem;
     background: #12111C;
     border-radius: 0.5rem;
     box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 40rem;
-    max-width: 32rem;
+    width: 44rem;
+    height: 31rem;
+    max-width: 50rem;
     padding: 2rem;
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     color: #ffffff;
-
+    gap: 0;
 }
 
 
+
+.cad-produto{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 5rem 5rem 5rem 5rem 5rem;
+}
+
+.image-preview{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    background: none;
+    color: #818181;
+    width: 20rem;
+    height: 9.1rem;
+    border: 0.5px #5a5a5a solid;
+    border-radius: 5px;
+}
+
+.Cat-produto {
+    margin-top: 0;
+}
+
+h3{
+    margin: 0;
+}
+
 .text1 {
-    
     text-align: center;
-    margin-bottom: 1rem;
     font-size: 2rem;
     font-family: 'Space Grotesk';
     font-style: normal;
     font-weight: 700;
 }
- 
-.imput-login{
+
+.imput-login {
+    margin-top: 0;
     background: none;
     color: white;
-    height: 2.7rem;
+    width: 20rem;
+    height: 2.5rem;
     padding-inline: 1rem;
+    border-radius: 0.5rem;
+}
+
+.imput-login2 {
+    background: none;
+    color: white;
+    width: 20rem;
+    height: 2.5rem;
+    padding-inline: 1rem;
+    border-radius: 0.5rem;
 }
