@@ -11,7 +11,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="shortcut icon" type="imagex/png" href="assets/img/angelock-favicon.ico">
     <link rel="stylesheet" href="assets/css/adm_produto.css">
 </head>
@@ -60,21 +62,25 @@
 
                 <div class="grid-item1">
                     <label for="produto">Nome do Produto</label><br>
-                    <input class="imput-login" placeholder="Digite o nome do produto aqui" type="text" id="produto" name="produto" required>
+                    <input class="imput-login" placeholder="Digite o nome do produto aqui" type="text" id="produto"
+                        name="produto" required>
                 </div>
                 <div class="valor">
                     <label for="preco">Valor</label><br>
-                    <input class="imput-login" placeholder="Digite o preço do produto" type="text" id="preco" name="preco" required>
+                    <input class="imput-login" placeholder="Digite o preço do produto" type="text" id="preco"
+                        name="preco" required>
                 </div>
 
                 <div class="">
                     <label for="qtd">Quantidade</label><br>
-                      <input class="imput-login" placeholder="Digite a quantidade" type="number" id="qtd" name="qtd" required>
-                  </div>  
+                    <input class="imput-login" placeholder="Digite a quantidade" type="number" id="qtd" name="qtd"
+                        required>
+                </div>
 
                 <div class="">
                     <label for="img">Imagem</label><br>
-                    <input class="imput-login" placeholder="Insira a imagem aqui" type="file" id="img" name="img" accept="image/*" required>
+                    <input class="imput-login" placeholder="Insira a imagem aqui" type="file" id="img" name="img"
+                        accept="image/*" required>
                 </div>
                 <div class="grid-item2">
                     <label class="Cat-produto" for="categoria">Categoria do Produto</label><br>
@@ -87,32 +93,13 @@
                     </select>
                 </div>
 
-                  <div class="image-preview" id="image-preview">Pré-visualização da imagem</div>
+                <div class="image-preview" id="image-preview"></div>
 
-               
-
-                
-
-
-
-                
-
-                     <input class="btn-cad" type="submit" value="Cadastrar Produto">
-
-                
+                <input class="btn-cad" type="submit" value="Cadastrar Produto">
         </div>
     </div>
     </div>
-
-
-
-
-
-
-
     </div>
-
-
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -151,7 +138,24 @@
         </div>
     </footer>
 
-    <script src="assets/js/mostrar_imagem.js"></script>
+    <script>
+        var loadFile = function (event) {
+            var output = document.getElementById('image-preview'); //id image-preview
+            //limpa toda vez que pega uma imagem nova ou reinicia a pagina
+            output.innerHTML = '';
+
+            var img = document.createElement('img'); //cria img
+            img.src = URL.createObjectURL(event.target.files[0]); //aqui ele cria um objeto de acordo com a img que a pessoa pegou
+
+            img.onload = function () {
+                URL.revokeObjectURL(img.src); // libera memória
+            };    
+
+            output.appendChild(img); //adiciona a imagem no image-preview
+        };
+        //aqui você confirma que tu ta chamando o img 
+        document.getElementById('img').addEventListener('change', loadFile);
+    </script>
 
 </body>
 

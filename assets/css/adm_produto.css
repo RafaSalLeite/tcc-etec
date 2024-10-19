@@ -302,6 +302,11 @@ option {
     border-radius: 5px;
 }
 
+.image-preview img{
+    width: 20rem;
+    height: 9.1rem;
+}
+
 .Cat-produto {
     margin-top: 0;
 }
