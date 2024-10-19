@@ -365,3 +365,73 @@ footer {
     align-items: center;
 }
  */
+
+ /* parte que o pin vai ter que ajeitar*/
+ .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center; /*essa parte não pode mudar, é o que faz ele ficar encima de tudo*/
+    z-index: 999; 
+    visibility: hidden; 
+}
+
+/*mudar daqui pra baixo*/
+
+.produto-detalhes {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+    padding: 2rem;
+    max-width: 50rem;
+    max-height: 40rem;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+.img-detalhes {
+    width: 20rem; 
+    border-radius: 0.5rem;
+}
+
+.produto-detalhes h2 {
+    font-size: 2rem; 
+    margin-bottom: 1rem;
+}
+
+.produto-detalhes p {
+    font-size: 1.5rem; 
+    margin-bottom: 0.5rem;
+}
+
+.btn-comprar {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.btn-comprar:hover {
+    background-color: #0056b3; /
+}
+
+.btn-fechar {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #9c9c9c;
+    cursor: point;
+}
