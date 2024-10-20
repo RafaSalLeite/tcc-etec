@@ -138,12 +138,12 @@
 
         function validarSenha(){
             if(senha.value != senha_c.value){
-                senha_c.setCustomValidity("senhas diferentes");
-                senha_c.reporValidity();
-                return false;
+                senha_c.setCustomValidity("senhas diferentes"); //aqui ele coloca aquela mensagem de senha diferente
+                senha_c.reporValidity(); //aqui ele "sobe a mensagem"
+                return false; //não cadastra
             }else{
                 senha_c.setCustomValidity("");
-                return true;
+                return true; //cadastra
             }
         }
 
