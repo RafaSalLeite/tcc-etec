@@ -48,6 +48,31 @@ body {
 
 }
 
+/*coisa do botao de pesquisa do nosso best*/
+#containerPesquisa{
+    background-color: white;
+    max-width: 100%;
+    margin: auto;
+}
+
+#results{
+    margin-top: 1 rem;
+    border: 0.1rem solid #ccc;
+    max-height: 20rem;
+    overflow-y: auto;
+}
+
+#results div{
+    padding: 1rem;
+    border-bottom: 0.1rem solid #ddd;
+    cursor:pointer;
+   
+}
+
+#results div:hover{
+    background-color: #f0f0f0;
+}
+
 .search {
     height: 1.4rem;
     width: 1.4rem;
