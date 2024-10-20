@@ -1,23 +1,26 @@
 <?php
+session_start(); 
 include('../connection/conn.php');
-include('functions.php');
 
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
-if(($email=="adm@gmail.com") && ($senha=="1234")){
+if (($email == "adm@gmail.com") && ($senha == "1234")) {
     header('Location:../../adm_produto.html');
-}else{
-    $result = mysqli_query($conn, "select * from login where email = '$email' and senha = '$senha';");
+    exit();
+} else {
+    $result = mysqli_query($conn, "SELECT * FROM login WHERE email = '$email' AND senha = '$senha';");
 
     if ($result) {
-        $num_rows = mysqli_num_rows($result); //aqui ele vai contar o numero de linhas 
-        if ($num_rows > 0) { // se tiver alguma linha com o nome de usuario igual ele retorna falso
+        $num_rows = mysqli_num_rows($result);
+        if ($num_rows > 0) {
             header('Location:../../produto.html');
+            exit();
         } else {
-            header('Location:../../cadastro.html');
+            $_SESSION['login_error'] = "Login incorreto";
+            header('Location:../../login.html?error=1');
+            exit();
         }
     }
 }
-    
 ?>
