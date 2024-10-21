@@ -1,14 +1,13 @@
 $(document).ready(function () {
     $.ajax({
-        url: 'backend/models/produto.php',
+        url: 'backend/models/produto.php', // A URL do seu endpoint que retorna todos os produtos
         type: 'GET',
         dataType: 'json',
         success: function (produtos) {
             const container = $('#container-prod');
-            const produtosLimitados = produtos.slice(0, 5); // Exibe apenas os primeiros 5 produtos
 
-            // Exibe os produtos principais
-            produtosLimitados.forEach(produto => {
+            // Exibe os produtos em uma grade
+            produtos.forEach(produto => {
                 const produtoDiv = `
                 <div class="produto" data-id="${produto.id_produtos}">
                     <img src="${produto.imagem}" class="img-cam">
@@ -91,19 +90,8 @@ $(document).ready(function () {
                     text: 'Você precisa estar logado para adicionar itens ao carrinho!',
                     icon: 'error',
                     showCancelButton: true,
-                    confirmButtonText: 'Login',
-                    cancelButtonText: 'Cadastro',
-                    reverseButtons: true
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Redireciona para a página de login
-                        window.location.href = 'login.html';
-                    } else if (result.dismiss === Swal.DismissReason.cancel) {
-                        // Redireciona para a página de cadastro
-                        window.location.href = 'cadastro.html';
-                    }
+                    confirmButtonText: 'ok'
                 });
-                
             } else {
                 Swal.fire({
                     title: 'Erro!',

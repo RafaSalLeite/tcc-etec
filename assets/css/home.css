@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 body {
     margin: 0;
     padding: 0;
@@ -263,55 +261,45 @@ a:hover {
     color: aliceblue;
    
 }
-
-.container-prod{
+.container-prod {
     margin-top: 3rem;
-    grid-column: 1 / span 5;
-    grid-row: 3;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.produto{
     display: grid;
-    grid-template-rows: auto auto;
-    background-color: #101011;
-    height: 20rem;
-    width: 15rem;
-    border: 0.1rem solid white;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 2rem;
 }
 
 
+.produto {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    transition: transform 0.2s; 
+    overflow: hidden; 
+}
 
 .img-cam{
     height: 15rem;
     width: 15rem;
 }
 
-.container-desc-cam{
-    display: flex;
-    align-items: flex-start;
-    padding-left: 10px;
-    border-top: 0.1rem solid white;
+.produto:hover {
+    transform: scale(1.05); 
 }
 
-.desc-img-cam{
-    font-size: 1.2rem;
-    color: aliceblue;
-    font-family: "Poppins", sans-serif;
-    
-    white-space: nowrap;
-    width: 12em;
-    overflow: hidden;
-    text-overflow:ellipsis;
+.produto img {
+    max-width: 15rem; 
+    height: 15rem; 
 }
 
-.desc-img-cat{
-    font-size: 1.2rem;
-    color: aliceblue;
-    font-family: "Poppins", sans-serif;
+.container-desc-cam {
+    padding: 0.2rem; 
+    text-align: center; 
 }
 
+.desc-img-cam {
+    color: white; /* Altera a cor do texto */
+    font-size: 1rem; /* Ajuste o tamanho da fonte */
+}
 
 
 .cat {
@@ -322,6 +310,14 @@ a:hover {
     height: 15rem;
     width: 15rem;
     border: 0.1rem solid white;
+}
+
+.container-cat{
+    margin-top: 3rem;
+    grid-column: 1 / span 5;
+    grid-row: 3;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .categoria{
@@ -426,27 +422,18 @@ footer {
 
 .produto-detalhes {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 47% 10% 29% 14%;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
     padding: 2rem;
     max-width: 50rem;
     max-height: 40rem;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 0.5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
-.preco-detalhes{
-    font-family: "Ubuntu Mono", monospace;
-    font-size: 2em;
-    margin: 0;
-    font-weight: 800;
-    color: #469fff;
-}
-
 .img-detalhes {
-    grid-row: 1 / span 4;
     width: 20rem; 
     border-radius: 0.5rem;
 }
@@ -456,9 +443,9 @@ footer {
     margin-bottom: 1rem;
 }
 
-.descricao-detalhes { 
-    font-size: 1.5rem;
-    margin: 0;
+.produto-detalhes p {
+    font-size: 1.5rem; 
+    margin-bottom: 0.5rem;
 }
 
 .btn-comprar {
@@ -468,19 +455,7 @@ footer {
     color: white;
     border: none;
     border-radius: 0.5rem;
-    line-height: 1rem;
     cursor: pointer;
-}
-
-.span-comprar{
-    text-align: left;
-    font-size: 1.2em;
-    color: white;
-}
-
-.span-comprar small{
-    font-size: 0.7rem ;
-    color: white;
 }
 
 .btn-comprar:hover {

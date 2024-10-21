@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+}
+
+#carrinho {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.item input {
+    width: 50px;
+}
+
+#carrinho-total {
+    margin-top: 20px;
+    text-align: right;
+}
+
+#finalizar-pedido {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}

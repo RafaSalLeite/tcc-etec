@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
+    <?php session_start(); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TCC angel lock</title>
-    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -13,25 +14,25 @@
         rel="stylesheet">
     <link rel="shortcut icon" type="imagex/png" href="assets/img/angelock-favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--jquery pra facilitar minha vida-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--sweet alert pra facilitar minha vida-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--sweet alert pra facilitar minha vida tbm-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
     <header class="header">
         <div class="grid-logo">
-            <a href="index.html"><img src="assets/img/Logo.svg" class="logo"></a>
+            <a href="home.html"><img src="assets/img/Logo.svg" class="logo"></a>
 
         </div>
         <!--parte de pesquisar produtos aqui-->
         <div class="grid-search">
-            <!--
             <input type="search" id="pesquisa" class="pesquisa" placeholder="Pesquise produtos aqui" autocomplete="off">
-            <button class="btn-source"><img src="assets/img/svgs/search-btn.svg" class="search"></button>-->
+            <button class="btn-source"><img src="assets/img/svgs/search-btn.svg" class="search"></button>
         </div>
         <div class="grid-login">
-            <a href="login.html" class="btn-login">Login</a>
-            <a href="cadastro.html" class="btn-cadastro">Cadastro</a>
+            <a href="perfil.html" class="btn-login"><i class="fas fa-user"></i></a>
+            <a href="meucarrinho.html" class="btn-cadastro"><i class="fas fa-shopping-cart"></i> </a>
         </div>
 
     </header>
@@ -39,7 +40,6 @@
     <!--aqui em tese vai aparecer o resultado da pesquisa, socorro-->
     <div id="containerPesquisa"></div>
 
-    <!--
     <nav class="nav">
         <button class="menu-btn"><img src="assets/img/svgs/menu-btn.svg" class="search"></button>
         <a class="btn-prod" href="cameras.html">Câmera</a>
@@ -48,32 +48,9 @@
         <a class="btn-prod" href="cerca_eletrica.html">Cerca Elétrica</a>
         <a class="btn-prod" href="dvr.html">DVR</a>
     </nav>
-    -->
-    
-
-    <div class="container">
-        <div class="container-grid-slogan">
-            <div class="grid-slogan">
-                <h1 class="slogan">Algelock</h1>
-            </div>
-            <div class="grid-desc">
-                <h2 class="desc">Angelock: proteção inteligente para um lar mais <br> seguro</h2>
-            </div>
-
-            <div class="grid-cadastro">
-                <a href="cadastro.html" id="cadastro">Criar conta</a>
-            </div>
-        </div>
-
-
-        <div class="grid-banner">
-            <img src="assets/img/banner.jpg" class="banner">
-        </div>
-
-    </div>
 
     <div class="titulo-prod">
-        <h2 class="subtitulo-prod">Produtos em destaque</h2>
+        <h2 class="subtitulo-prod">Conheça nossos produtos!</h2>
     </div>
 
     <!--aqui é onde vai aparecer o coiso de comprar o produto-->
@@ -82,33 +59,7 @@
 
     <!--parte que precisa por o banco-->
     <div id="container-prod" class="container-prod">
-        <!--
-        <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-            <div class="container-desc-cam">
-                <p class="desc-img-cam">Nome Produto 1<br>R$00,00</p>
-            </div>
-        </div>
-        <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-            <div class="container-desc-cam">
-                <p class="desc-img-cam">Nome Produto 2<br>R$00,00</p>
-            </div>
-        </div>
-        <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-            <div class="container-desc-cam">
-                <p class="desc-img-cam">Nome Produto 3<br>R$00,00</p>
-            </div>
-        </div>
-        <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-            <div class="container-desc-cam">
-                <p class="desc-img-cam">Nome Produto 4<br>R$00,00</p>
-            </div>
-        </div>
-        <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-            <div class="container-desc-cam">
-                <p class="desc-img-cam">Nome Produto 5<br>R$00,00</p>
-            </div>
-        </div>
-        -->
+
     </div>
     </div>
 
@@ -116,39 +67,39 @@
         <h2 class="subtitulo-prod">Categorias</h2>
     </div>
 
-    <div class="container-prod">
+    <div class="container-cat">
         <div class="cat">
             <div class="categoria">
                 <a href="cameras.html">
-                    <p class="desc-img-cat">Câmeras <img src="assets/img/camera.png" class="img-cat">
+                    <p class="desc-img-cam">Câmeras <img src="assets/img/camera.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="alarmes.html">
-                    <p class="desc-img-cat">Alarmes <img src="assets/img/alarme.png" class="img-cat">
+                    <p class="desc-img-cam">Alarmes <img src="assets/img/alarme.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="concertina.html">
-                    <p class="desc-img-cat">Concertinas <img src="assets/img/concertina.png" class="img-cat">
+                    <p class="desc-img-cam">Concertinas <img src="assets/img/concertina.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="cerca_eletrica.html">
-                    <p class="desc-img-cat">Cerca Elétrica <img src="assets/img/cerca.png" class="img-cat">
+                    <p class="desc-img-cam">Cerca Elétrica <img src="assets/img/cerca.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="dvr.html">
-                    <p class="desc-img-cat">DVR <br> <img src="assets/img/DVR.png" class="img-cat">
+                    <p class="desc-img-cam">DVR <br> <img src="assets/img/DVR.png" class="img-cat">
                 </a>
             </div>
         </div>
@@ -195,20 +146,10 @@
             <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
         </div>
 
-
-        <!--
-        <div class="logo-footer">
-            <img src="assets/img/logo-footer.svg">
-        </div>
-        -->
-
     </footer>
 
-    <script src="assets/js/produtos.js"></script>
-    <!--
+    <script src="assets/js/produtosTodos.js"></script>
     <script src="assets/js/pesquisaproduto.js"></script>
-    -->
-    
 </body>
 
 </html>

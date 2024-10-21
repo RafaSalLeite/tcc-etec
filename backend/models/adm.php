@@ -6,6 +6,7 @@ $valor = $_POST['preco'];
 $qtd = $_POST['qtd'];
 $img = "";
 $categoria = "";
+$descricao = $_POST['descricao'];
 
 if ($_POST['categoria'] == 'camera') {
     $categoria = 'camera';
@@ -29,11 +30,12 @@ if (isset($_FILES['img']) && !empty($_FILES['img'])) {
 }
 
 // inserindo os dados
-$sql = "INSERT INTO produtos (nome, categoria, valor, quantidade, imagem) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO produtos (nome, descricao, categoria, valor, quantidade, imagem) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 
 $stmt->execute([
     $nome,
+    $descricao,
     $categoria,
     $valor,
     $qtd,
