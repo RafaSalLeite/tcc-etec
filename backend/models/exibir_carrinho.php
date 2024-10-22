@@ -13,7 +13,7 @@ include('../connection/conn.php');
 
 $id_user = $_SESSION['id_user'];
 
-$sql = "SELECT p.nome, p.valor, c.quantidade FROM carrinho c
+$sql = "SELECT p.id_produtos, p.nome, p.imagem, p.valor, c.quantidade FROM carrinho c
         JOIN produtos p ON c.id_produtos = p.id_produtos WHERE c.id_user = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id_user); // 'i' representa um inteiro para o id_user

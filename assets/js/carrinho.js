@@ -15,9 +15,16 @@ document.addEventListener('DOMContentLoaded', function () {
                         const itemElement = document.createElement('div');
                         itemElement.classList.add('item');
                         itemElement.innerHTML = `
+                            <img src="${item.imagem}" class="item-img">
                             <span class="item-nome">${item.nome}</span>
                             <span class="item-preco">R$ ${item.valor}</span>
-                            <input type="number" class="item-quantidade" value="${item.quantidade}" min="1">
+
+                            <div class="quantidade-container">
+                                <button class="btn-decrementar" data-id="${item.id_produtos}">-</button>
+                                <input type="number" class="item-quantidade" value="${item.quantidade}" min="1" data-id="${item.id_produtos}">
+                                <button class="btn-incrementar" data-id="${item.id_produtos}">+</button>
+                            </div>
+
                             <button class="remover-item" data-id="${item.id_produtos}">Remover</button>
                         `;
                         carrinhoItens.appendChild(itemElement);
@@ -33,22 +40,76 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
+    // Função para atualizar a quantidade de um produto
+    function atualizarQuantidade(produtoId, novaQuantidade) {
+        fetch('backend/models/atualizar_quantidade.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `id_produtos=${produtoId}&quantidade=${novaQuantidade}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                carregarCarrinho();
+            } else {
+                Swal.fire({
+                    title: 'Erro',
+                    text: 'Erro ao atualizar a quantidade',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Erro ao processar a requisição!',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        });
+    }
+
+    // Função para incrementar ou decrementar a quantidade
+    document.addEventListener('click', function(event) { //aqui é pra ele pegar o click do usuario
+        if (event.target.classList.contains('btn-incrementar')) {
+            const produtoId = event.target.dataset.id; //pega o id do produto
+            const inputQuantidade = document.querySelector(`.item-quantidade[data-id="${produtoId}"]`); //pega o numero de quantidade
+            let novaQuantidade = parseInt(inputQuantidade.value) + 1; //transforma em int
+            inputQuantidade.value = novaQuantidade; //pega o valor
+            atualizarQuantidade(produtoId, novaQuantidade); //chama a função
+        } else if (event.target.classList.contains('btn-decrementar')) {
+            const produtoId = event.target.dataset.id;
+            const inputQuantidade = document.querySelector(`.item-quantidade[data-id="${produtoId}"]`);
+            let novaQuantidade = parseInt(inputQuantidade.value) - 1;
+            if (novaQuantidade < 1) novaQuantidade = 1; // Previne valores negativos
+            inputQuantidade.value = novaQuantidade;
+            atualizarQuantidade(produtoId, novaQuantidade);
+        }
+    });
+
     // Função para remover item do carrinho
     carrinhoItens.addEventListener('click', function (event) {
         if (event.target.classList.contains('remover-item')) {
             const produtoId = event.target.getAttribute('data-id');
-            fetch(`backend/models/remover_item_carrinho.php?id_produtos=${produtoId}`, {
-                method: 'POST'
-            })
+            fetch('backend/models/remover_item_carrinho.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `id_produtos=${produtoId}`
+            })            
             .then(response => response.json())
             .then(data => {
                 if (data.status === 'success') {
-                    carregarCarrinho(); // Recarregar o carrinho após a remoção
+                    carregarCarrinho(); 
                 } else {
                     alert('Erro ao remover o item do carrinho');
                 }
             });
-            
         }
     });
 
@@ -65,8 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 alert('Erro ao finalizar o pedido');
             }
-        })
-        
+        });
     });
 
     // Carregar o carrinho na inicialização
