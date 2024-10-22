@@ -5,8 +5,6 @@ $username = "root";
 $password = "1234";
 $dbname = "e_commerce";
 
-// Conexão usando PDO
-// $pdo = new PDO('mysql:host=' . $hostname . ';dbname=' . $dbname, $username, $password);
 
 $conn = mysqli_connect($hostname,$username,$password,$dbname);
  

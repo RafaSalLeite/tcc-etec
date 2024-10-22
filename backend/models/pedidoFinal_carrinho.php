@@ -1,52 +1,77 @@
 <?php
-session_status();
+session_start(); // Inicia a sessão
+print_r($_SESSION['email']);
 
-if (!isset($_session['id_user'])) {
+if (!isset($_SESSION['id_user'])) {
     echo json_encode([
         'status' => 'error',
-        'message' => 'você precisa estar logado para acessar o carrinho'
+        'message' => 'Você precisa estar logado para acessar o carrinho'
     ]);
     exit;
 }
 
 include('../connection/conn.php');
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
 $id_user = $_SESSION['id_user'];
 
-$sql = "select p.nome, p.preco, p.quantidade from carrinho c
-join produtos p on c.id_produtos = p.id_pedidos where c.id_user = ? ";
-$stmt = $conn -> prepare($sql);
-$stmt-> execute ([$id_user]);
-$items = $stmt ->fetchAll();
+// Recupera os itens do carrinho
+$sql = "SELECT p.nome, p.valor, c.quantidade FROM carrinho c
+JOIN produtos p ON c.id_produtos = p.id_produtos WHERE c.id_user = '$id_user'";
+$result = mysqli_query($conn, $sql);
 
+$items = [];
 $total = 0;
-foreach ($items as $item) {
-    $total += $item['preco'] * $item['quantidade'];
+
+while ($item = mysqli_fetch_assoc($result)) {
+    $items[] = $item;
+    $total += $item['valor'] * $item['quantidade'];
 }
 
-$sql = "insert into pedidos(id_user,data_pedido,total,status) values (?, NOW(), ?, 'concluido')";
-$stmt = $conn->prepare($sql);
-$stmt->execute([$id_user, $total]);
+// Insere o pedido no banco de dados
+$sql = "INSERT INTO pedidos(id_user, data_pedido, total, status) VALUES ('$id_user', NOW(), '$total', 'concluido')";
+mysqli_query($conn, $sql);
 
-$sql = "delete from carrinho where id_user = ?";
-$stmt = $conn -> prepare($sql);
-$stmt -> execute([$id_user]);
+// Remove os itens do carrinho
+$sql = "DELETE FROM carrinho WHERE id_user = '$id_user'";
+mysqli_query($conn, $sql);
 
-//preparação do email, sabe? teste teste
-$to = $_SESSION['email'];
-$subject = "Seu pedido foi concluído, espere o contato de nossa empresa para agendar a visita!";
-$message = "Aqui estão os detalhes de seu pedido:\n\n";
-foreach ($items as $item) {
-    $message .= $item['nome'] . " - Quantidade: " . $item['quantidade'] . " - Preço: R$ " . $item['preco'] . "\n";
+// Preparação do email
+$mail = new PHPMailer\PHPMailer\PHPMailer();
+
+try {
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'angelockoficial@gmail.com'; // Seu email do Gmail
+    $mail->Password = 'angelock12'; // Sua senha do Gmail
+    $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = 587;
+
+    $mail->setFrom('angelockoficial@gmail.com', 'Angelock');
+    $mail->addAddress($_SESSION['email']); // Adicionar destinatário
+
+    $mail->isHTML(true);
+    $mail->Subject = "Seu pedido foi concluído!";
+    $message = "Aqui estão os detalhes de seu pedido:<br><br>";
+    foreach ($items as $item) {
+        $message .= $item['nome'] . " - Quantidade: " . $item['quantidade'] . " - Preço: R$ " . $item['valor'] . "<br>";
+    }
+    $message .= "<br>Total: R$ " . $total;
+
+    $mail->Body = $message;
+
+    $mail->send();
+    echo json_encode([
+        'status' => 'success',
+        'message' => 'Pedido concluído e email enviado!'
+    ]);
+} catch (Exception $e) {
+    echo json_encode([
+        'status' => 'error',
+        'message' => "Erro ao enviar o email: {$mail->ErrorInfo}"
+    ]);
 }
-$message .= "\nTotal: R$ " . $total;
-
-//aqui ele manda o email
-mail($to, $subject, $message);
-
-echo json_encode([
-    'status' => 'success',
-    'message' => 'pedido concluído'
-]);
-
 ?>
