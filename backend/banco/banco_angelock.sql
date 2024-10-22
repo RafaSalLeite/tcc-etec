@@ -1,4 +1,4 @@
--- drop database e_commerce;
+drop database if exists e_commerce;
 create database e_commerce;
 use e_commerce;
 
@@ -36,6 +36,7 @@ foreign key(email) references cadastro(email)
 create table produtos(
 id_produtos int auto_increment not null,
 nome varchar(300),
+descricao VARCHAR(500) DEFAULT 'A descrição não está disponível no momento',
 categoria ENUM('camera', 'alarme', 'concertina', 'cerca elétrica', 'dvr'),
 valor decimal(10,2) not null,
 quantidade int not null,
@@ -43,7 +44,25 @@ imagem varchar(100),
 primary key(id_produtos)
 )engine=InnoDB;
 
-use e_commerce;
-select * from produtos;
-select * from login;
+create table carrinho(
+id_carrinho int auto_increment,
+id_user int,
+id_produtos int,
+quantidade int,
+primary key(id_carrinho),
+foreign key(id_user) references cadastro (id_user),
+foreign key(id_produtos) references produtos (id_produtos)
+)engine=InnoDB;
+
+create table pedidos(
+id_pedidos int auto_increment,
+id_user int,
+data_pedido datetime,
+total decimal(10,2),
+status varchar(20),
+primary key(id_pedidos),
+foreign key (id_user) references cadastro(id_user)
+)engine=InnoDB;
+
+select * from carrinho;
 
