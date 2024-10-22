@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to top, #0F0E0E 40%, #0E004F 70%);
+}
+
+.header {
+    width: 100%;
+    height: 5rem;
+    left: 0px;
+    top: 0px;
+    background-color: #050710;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    position: sticky;
+}
+
+
+.logo {
+    width: 19rem;
+    height: auto;
+
+}
+
+.grid-logo{
+    padding-left: 4rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.pesquisa {
+    background: none;
+    box-sizing: border-box;
+    height: 2rem;
+    width: 25rem;
+    border: 0.5px solid rgba(252, 252, 252, 0.5);
+    border-radius: 8px 0 0px 8px;
+    color: white;
+    padding-inline: 1rem;
+
+}
+
+.pesquisa::placeholder {
+    color: white;
+
+}
+
+.search {
+    height: 1.4rem;
+    width: 1.4rem;
+
+}
+
+.grid-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-source {
+    background: none;
+    height: 2rem;
+    width: 3rem;
+    border: 0.5px solid rgba(252, 252, 252, 0.5);
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+}
+
+.btn-login {
+    background: none;
+    height: 2rem;
+    width: 9rem;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    border: 0.5px solid rgba(252, 252, 252, 0.5);
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+}
+
+.btn-cadastro {
+    background: linear-gradient(91.53deg, #231EFF 0%, #2900cd 100%);
+    height: 2rem;
+    width: 9rem;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    border: 0.5px solid rgba(252, 252, 252, 0.5);
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+}
+.grid-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loja{
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.img-loja{
+    text-align: center;
+    background-color: #000000;
+    width:67rem;
+}
+
+main {
+    max-width: 70rem;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 8px;
+}
+
+main h2 {
+    color: #b9dbff;
+    margin-bottom: 10px;
+}
+
+main section {
+    margin-bottom: 30px;
+}
+
+main p, main ul {
+    font-size: 1.1rem;
+    color: #fff;
+    line-height: 1.6;
+}
+
+main ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+footer {
+    background-color: #0F0E0E;
+    padding: 20px;
+    margin-top: 7rem;
+   
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto; 
+    margin-top: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #8d8d8d;
+}
+
+
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+}
+
+.faq-item {
+    margin-bottom: 0.8rem;
+}
+
+.faq-question {
+    background-color: #006eff;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1rem;
+    width: 100%;
+    text-align: left;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #0056b3;
+}
+
+.faq-answer {
+    display: none;
+    background-color: #271347;
+    padding: 15px;
+    border-left: 3px solid  #0056b3;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.faq-item.active .faq-answer {
+    display: block; 
+}
