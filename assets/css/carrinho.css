@@ -1,39 +1,90 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 0;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
 }
 
 #carrinho {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 15px rgba(52, 40, 104, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#carrinho-itens {
+    margin-bottom: 20px;
 }
 
 .item {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
 }
 
-.item input {
+.item:last-child {
+    border-bottom: none;
+}
+
+.item-nome {
+    font-weight: bold;
+    color: #333;
+}
+
+.item-preco {
+    color: #666;
+    font-weight: bold;
+}
+
+.item-quantidade {
     width: 50px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.remover-item {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.remover-item:hover {
+    background-color: #c0392b;
 }
 
 #carrinho-total {
-    margin-top: 20px;
     text-align: right;
+    font-size: 1.2rem;
+    margin-top: 20px;
 }
 
 #finalizar-pedido {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
     display: block;
     width: 100%;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
     margin-top: 20px;
-    text-align: center;
+}
+
+#finalizar-pedido:hover {
+    background-color: #2980b9;
 }

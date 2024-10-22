@@ -1,12 +1,12 @@
 $(document).ready(function () {
     $.ajax({
-        url: 'backend/models/produto.php', // A URL do seu endpoint que retorna todos os produtos
+        url: 'backend/models/produto.php', 
         type: 'GET',
         dataType: 'json',
         success: function (produtos) {
             const container = $('#container-prod');
 
-            // Exibe os produtos em uma grade
+            // essa parte aqui é pra exibição de todos os produtos 
             produtos.forEach(produto => {
                 const produtoDiv = `
                 <div class="produto" data-id="${produto.id_produtos}">
@@ -19,10 +19,10 @@ $(document).ready(function () {
                 container.append(produtoDiv);
             });
 
-            // Adiciona evento de clique para exibir os detalhes do produto
+            
             $('.produto').click(function () {
                 const idProduto = $(this).data('id');
-                produtoDetalhado(idProduto); // Função para exibir os detalhes do produto
+                produtoDetalhado(idProduto); 
             });
         },
         error: function (xhr, status, error) {
@@ -30,6 +30,7 @@ $(document).ready(function () {
         }
     });
 
+    //aqui é a janelinha que ele abre pra exibir o produto tem no index também
     function produtoDetalhado(idProduto) {
         $.ajax({
             url: `backend/models/mostraproduto.php?id=${idProduto}`,
@@ -57,7 +58,7 @@ $(document).ready(function () {
                 // Adiciona o evento para o botão de comprar
                 $('.btn-comprar').click(function () {
                     const produtoId = $(this).data('produto-id');
-                    adicionarAoCarrinho(produtoId, 1);
+                    adicionarAoCarrinho(produtoId, 1); //chama a função adicionar ao carrinho
                 });
             },
             error: function (xhr, status, error) {
@@ -66,7 +67,7 @@ $(document).ready(function () {
         });
     }
 
-    // Função para adicionar ao carrinho
+    //função adicionar ao carrinho
     function adicionarAoCarrinho(produtoId, quantidade) {
         fetch('backend/models/add_carrinho.php', {
             method: 'POST',
@@ -90,7 +91,7 @@ $(document).ready(function () {
                     text: 'Você precisa estar logado para adicionar itens ao carrinho!',
                     icon: 'error',
                     showCancelButton: true,
-                    confirmButtonText: 'ok'
+                    confirmButtonText: 'OK'
                 });
             } else {
                 Swal.fire({

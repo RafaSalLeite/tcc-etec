@@ -16,25 +16,33 @@ $id_user = $_SESSION['id_user'];
 $quantidade = $_POST['quantidade'];
 
 // Verifica se o item já está no carrinho
-$sql = "SELECT * FROM carrinho WHERE id_user = ? AND id_produtos = ?";
-$stmt = $conn->prepare($sql);
-$stmt->execute([$id_user, $id_produtos]);
-$item = $stmt->fetch();
+$sql = "SELECT quantidade FROM carrinho WHERE id_user = '$id_user' AND id_produtos = '$id_produtos'";
+$result = mysqli_query($conn, $sql);
 
-if ($item) {
-    // Atualiza a quantidade do item no carrinho
-    $sql = "UPDATE carrinho SET quantidade = quantidade + ? WHERE id_user = ? AND id_produtos = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$quantidade, $id_user, $id_produtos]);
+if ($result) {
+    $item = mysqli_fetch_assoc($result);
+    
+    if ($item) {
+        // Atualiza a quantidade do item no carrinho
+        $nova_quantidade = $item['quantidade'] + $quantidade;
+        $sql = "UPDATE carrinho SET quantidade = $nova_quantidade WHERE id_user = '$id_user' AND id_produtos = '$id_produtos'";
+        mysqli_query($conn, $sql);
+    } else {
+        // Insere o novo item no carrinho
+        $sql = "INSERT INTO carrinho (id_user, id_produtos, quantidade) VALUES ('$id_user', '$id_produtos', '$quantidade')";
+        mysqli_query($conn, $sql);
+    }
+
+    echo json_encode([
+        'status' => 'success',
+        'message' => 'Item adicionado ao carrinho com sucesso!'
+    ]);
 } else {
-    // Insere o novo item no carrinho
-    $sql = "INSERT INTO carrinho(id_user, id_produtos, quantidade) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$id_user, $id_produtos, $quantidade]);
+    echo json_encode([
+        'status' => 'error',
+        'message' => 'Erro ao verificar o carrinho.'
+    ]);
 }
 
-echo json_encode([
-    'status' => 'success',
-    'message' => 'Item adicionado ao carrinho com sucesso!'
-]);
+mysqli_close($conn); // Fecha a conexão com o banco de dados
 ?>
