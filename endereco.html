@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto x</title>
-    <link rel="stylesheet" href="assets/css/Produto.css">
+    <title>Cadastro de endereço angel lock</title>
+    <link rel="stylesheet" href="assets/css/endereco.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -19,6 +19,7 @@
     <header class="header">
         <div class="grid-logo">
             <a href="index.html"><img src="assets/img/Logo.svg" class="logo"></a>
+           
         </div>
         <div class="grid-search">
             <input type="search" class="pesquisa" placeholder="Pesquise produtos aqui">
@@ -40,57 +41,56 @@
         <a class="btn-prod" href="#">DVR</a>
     </nav>
 
-    <div class="container">
-        <div class="grid-view-prod">
-            <div class="view-prod"><img src="assets/img/camera.png" class="img-view-prod"></div>
-        </div>
-        <div class="grid-container-desc">
-            <div class="container-desc">
-                <h1 class="nome-prod">Camera do meu pai</h1>
-                <h1 class="preco">R$120,90</h1>
-                <button class="btn-comprar">Comprar</button>
-                <h3 class="title-desc">Descrição do Produto</h3>
-                <p class="desc">Lorem ipsum Lorem ipsum Lorem ipsum 
-                    Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum 
-                    Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
-                </p>
+    <div class="container-conta">
+        <div class="criar-conta">
+            <div>
+                <h2 class="text">Cadastre seu endereço</h2>
             </div>
-        </div>
-        <div class="prod-rel">
-            <h1>Produtos relacionados</h1>
-        </div>
-        <div class="container-prod">
-            <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-                <div class="container-desc-cam">
-                    <p class="desc-img-cam">Nome Produto 1<br>R$00,00</p>
-                </div> 
-            </div>
-            <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-                <div class="container-desc-cam">
-                    <p class="desc-img-cam">Nome Produto 2<br>R$00,00</p>
-                </div> 
-            </div> 
-            <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-                <div class="container-desc-cam">
-                    <p class="desc-img-cam">Nome Produto 3<br>R$00,00</p>
-                </div> 
-            </div> 
-            <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-                <div class="container-desc-cam">
-                    <p class="desc-img-cam">Nome Produto 4<br>R$00,00</p>
-                </div> 
-            </div> 
-            <div class="produto"><img src="assets/img/camera.png" class="img-cam">
-                <div class="container-desc-cam">
-                    <p class="desc-img-cam">Nome Produto 5<br>R$00,00</p>
-                </div> 
-            </div>
-        </div>
-       
-    </div>
+            <form class="cadastro" action="backend/models/endereco.php" method="post"> <!--aqui o action é pra ir o link do php-->
+                <div class="nome-sobrenome">
 
+                    <div class="campo">
+                        <label for="nome">Tipo endereço</label>
+                                <select id="tipoEndereco" name="tipoEndereco">
+                                <option value="residencial"></option>
+                                <option value="residencial">Residêncial</option>
+                                <option value="comercial">Comercial</option>
+                                </select>
 
+                    </div>
+                    <div class="campo">
+                        <label for="sobrenome">CEP</label>
+                        <input class="imput-cep" type="text" id="cep" maxlength="9" placeholder="XXXXX-XXX">
+                    </div>
+                </div>
+
+                <div class="nome-sobrenome">
+                    <div class="campo">
+                        <label for="cidade">Cidade</label>
+                        <input class="imput-cep" placeholder="Digite sua cidade" type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="campo">
+                        <label for="sobrenome">bairro</label>
+                        <input class="imput-cep" placeholder="Digite seu bairro" type="text" id="sobrenome" name="sobrenome"
+                            required>
+                    </div> 
+                </div>
+
+                <div class="campo">
+                    <label for="cidade">Rua</label>
+                    <input class="imput-cep" placeholder="Digite sua rua" type="text" id="nome" name="nome" required>
+                </div>
+                <input class="btn-cad" type="submit" value="Cadastrar">
+            </div>
   
+                
+            </form>
+           
+
+
+        </div>
+
+    </div>
 
 
     <footer>
@@ -129,15 +129,9 @@
         <div class="footer-bottom">
             <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
         </div>
-
-        <!--
-        <div class="logo-footer">
-            <img src="assets/img/logo-footer.svg">
-        </div>
-        -->
-        
     </footer>
 
+    <script src="assets/js/endereco.js"></script>
 </body>
 
 </html>
