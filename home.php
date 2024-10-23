@@ -72,28 +72,28 @@
         <div class="cat">
             <div class="categoria">
                 <a href="cameras.html">
-                    <p class="desc-img-cam">Câmeras <img src="assets/img/camera.png" class="img-cat">
+                    <p class="desc-img-cam">Câmeras <br> <img src="assets/img/camera.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="alarmes.html">
-                    <p class="desc-img-cam">Alarmes <img src="assets/img/alarme.png" class="img-cat">
+                    <p class="desc-img-cam">Alarmes <br> <img src="assets/img/alarme.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="concertina.html">
-                    <p class="desc-img-cam">Concertinas <img src="assets/img/concertina.png" class="img-cat">
+                    <p class="desc-img-cam">Concertinas <br> <img src="assets/img/concertina.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="cerca_eletrica.html">
-                    <p class="desc-img-cam">Cerca Elétrica <img src="assets/img/cerca.png" class="img-cat">
+                    <p class="desc-img-cam">Cerca Elétrica <br> <img src="assets/img/cerca.png" class="img-cat">
                 </a>
             </div>
         </div>

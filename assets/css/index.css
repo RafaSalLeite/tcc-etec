@@ -429,6 +429,7 @@ footer {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 47% 10% 29% 14%;
     padding: 2rem;
+    column-gap: 2rem;
     max-width: 50rem;
     max-height: 40rem;
     margin: 0 auto;
