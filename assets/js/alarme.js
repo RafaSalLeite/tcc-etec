@@ -1,19 +1,13 @@
 $(document).ready(function () {
-
     $.ajax({
         url: 'backend/models/alarmes.php',
         type: 'GET',
         dataType: 'json',
         success: function (alarme) {
-            console.log('Alarmes recebidos:', alarme);
-
             const container = $('#container-prod');
-
             const produtosLimitados = alarme.slice(0, 5);
 
             produtosLimitados.forEach(alarme => {
-                console.log('Adicionando câmera:', alarme.nome);
-
                 const alarmeDiv = `
                 <div class="produto" data-id="${alarme.id_produtos}">
                     <img src="${alarme.imagem}" class="img-cam">
@@ -22,14 +16,12 @@ $(document).ready(function () {
                     </div>
                 </div>
                 `;
-
                 container.append(alarmeDiv);
             });
-            
-            //pega o id dos produtos
+
             $('.produto').click(function () {
                 const idProduto = $(this).data('id');
-                produtoDetalhado(idProduto); //função pra pegar os detalhes do produto
+                produtoDetalhado(idProduto);
             });
         },
         error: function (xhr, status, error) {
@@ -39,30 +31,77 @@ $(document).ready(function () {
 
     function produtoDetalhado(idProduto) {
         $.ajax({
-            url: `backend/models/mostraproduto.php?id=${idProduto}`, //aqui tem interpolação pra mandar o id do produto pro mostraproduto.php
+            url: `backend/models/mostraproduto.php?id=${idProduto}`,
             type: 'GET',
             dataType: 'json',
             success: function (produto) {
-                const detalhesProduto = //essa parte aqui vai exibir os detalhes do produto
-                    `
-                    
-                    <div class="produto-detalhes">
-                        <button class="btn-fechar">&times;</button>
-                        <img src="${produto.imagem}" class="img-detalhes">
-                        <h2>${produto.nome}</h2>
-                        <p>${produto.descricao}</p>
-                        <p>R$ ${produto.valor}</p>
-                        <button class="btn-comprar">Comprar</button>
-                    </div>
-                    `
-                    ;
+                const detalhesProduto = `
+                <div class="produto-detalhes">
+                    <button class="btn-fechar">&times;</button>
+                    <img src="${produto.imagem}" class="img-detalhes">
+                    <h2>${produto.nome}</h2>
+                    <p>${produto.descricao}</p>
+                    <p>R$ ${produto.valor}</p>
+                    <button class="btn-comprar" data-produto-id="${produto.id_produtos}">Comprar</button>
+                </div>
+                `;
 
-                $('#overlay').html(detalhesProduto).css('visibility', 'visible'); //aqui ele troca no css o overlay que estava invisível para visível
+                $('#overlay').html(detalhesProduto).css('visibility', 'visible');
 
-                $('.btn-fechar').click(function () { // e aqui quando você clica no botão de fecha (o x) ele troca o css pra hidden
-                    $('#overlay').css('visibility', 'hidden'); // Esconde a sobreposição
+                $('.btn-fechar').click(function () {
+                    $('#overlay').css('visibility', 'hidden');
+                });
+
+                $('.btn-comprar').click(function () {
+                    const produtoId = $(this).data('produto-id');
+                    adicionarAoCarrinho(produtoId, 1);
                 });
             }
+        });
+    }
+
+    function adicionarAoCarrinho(produtoId, quantidade) {
+        fetch('backend/models/add_carrinho.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `id_produtos=${produtoId}&quantidade=${quantidade}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: 'Item adicionado ao carrinho com sucesso!',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+            } else if (data.status === 'error' && data.message.includes('logado')) {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Você precisa estar logado para adicionar itens ao carrinho!',
+                    icon: 'error',
+                    showCancelButton: true,
+                    confirmButtonText: 'OK'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Erro!',
+                    text: 'Erro ao adicionar item ao carrinho!',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            Swal.fire({
+                title: 'Erro!',
+                text: 'Erro ao processar a requisição!',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         });
     }
 });

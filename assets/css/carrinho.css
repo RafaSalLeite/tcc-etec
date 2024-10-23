@@ -6,6 +6,31 @@ body {
     
 }
 
+.header {
+    width: 100%;
+    height: 5rem;
+    left: 0px;
+    top: 0px;
+    background-color: #050710;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    position: sticky;
+}
+
+
+.logo {
+    width: 19rem;
+    height: auto;
+
+}
+
+.grid-logo{
+    padding-left: 4rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,

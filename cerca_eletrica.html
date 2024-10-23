@@ -13,25 +13,28 @@
         rel="stylesheet">
     <link rel="shortcut icon" type="imagex/png" href="assets/img/angelock-favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--jquery pra facilitar minha vida-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--sweet alert pra facilitar minha vida tbm-->
 </head>
 
 <body>
 
     <header class="header">
         <div class="grid-logo">
-            <a href="index.html"><img src="assets/img/Logo.svg" class="logo"></a>
+            <a href="home.php"><img src="assets/img/Logo.svg" class="logo"></a>
 
         </div>
+        <!--parte de pesquisar produtos aqui-->
         <div class="grid-search">
-            <input type="search" class="pesquisa" placeholder="Pesquise produtos aqui">
+            <input type="search" id="pesquisa" class="pesquisa" placeholder="Pesquise produtos aqui" autocomplete="off">
             <button class="btn-source"><img src="assets/img/svgs/search-btn.svg" class="search"></button>
         </div>
         <div class="grid-login">
-            <a href="login.html" class="btn-login">Login</a>
-            <a href="cadastro.html" class="btn-cadastro">Cadastro</a>
+            <a href="perfil.html" class="btn-login"><i class="fas fa-user"></i></a>
+            <a href="meucarrinho.html" class="btn-cadastro"><i class="fas fa-shopping-cart"></i> </a>
         </div>
 
     </header>
+
 
     <nav class="nav">
         <button class="menu-btn"><img src="assets/img/svgs/menu-btn.svg" class="search"></button>
