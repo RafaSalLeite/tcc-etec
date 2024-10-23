@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function (){
                         const div = document.createElement('div');
                         div.textContent = item.nome;
                         containerResultado.appendChild(div);
+                        
                     });
                 } else{
                     containerResultado.innerHTML = `

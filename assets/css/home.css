@@ -49,14 +49,35 @@ body {
 }
 
 /*coisa do botao de pesquisa do nosso best*/
-#containerPesquisa{
-    background-color: white;
+#containerPesquisa div{
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    background-color: #050710;
+    border: solid #c4c4c4 0.5px;
+    height: 3rem;
+    padding-inline: 1rem;
     max-width: 100%;
     margin: auto;
+    color: white;
 }
 
+#containerPesquisa p{
+    display: flex;
+    align-items: center;
+    background-color: #050710;
+    font-family: Arial, sans-serif;
+    border: solid #c4c4c4 0.5px;
+    height: 3rem;
+    padding-inline: 1rem;
+    max-width: 100%;
+    margin: auto;
+    color: white;
+}
+
+
 #results{
-    margin-top: 1 rem;
+    margin-top: 1rem;
     border: 0.1rem solid #ccc;
     max-height: 20rem;
     overflow-y: auto;
@@ -270,12 +291,11 @@ a:hover {
 
 
 .produto {
-    display: grid;
-    grid-template-rows: auto auto;
-    background-color: #101011;
-    height: 20rem;
-    width: 15rem;
-    border: 0.1rem solid white;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    transition: transform 0.2s; 
+    overflow: hidden; 
 }
 
 .img-cam{
@@ -298,14 +318,8 @@ a:hover {
 }
 
 .desc-img-cam {
-    font-size: 1.2rem;
-    color: aliceblue;
-    font-family: "Poppins", sans-serif;
-    width: 12em;
-    white-space: nowrap;
-    
-    overflow: hidden;
-    text-overflow:ellipsis;
+    color: white; /* Altera a cor do texto */
+    font-size: 1rem; /* Ajuste o tamanho da fonte */
 }
 
 
@@ -429,45 +443,30 @@ footer {
 
 .produto-detalhes {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 58% 10% 18% 14%;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
     padding: 2rem;
-    column-gap: 2rem;
     max-width: 50rem;
     max-height: 40rem;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 0.5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
-.preco-detalhes{
-    font-family: "Ubuntu Mono", monospace;
-    font-size: 2em;
-    margin: 0;
-    font-weight: 800;
-    color: #469fff;
-}
-
 .img-detalhes {
-    grid-row: 1 / span 4;
     width: 20rem; 
     border-radius: 0.5rem;
 }
 
 .produto-detalhes h2 {
     font-size: 2rem; 
-    margin: 0;
-    
+    margin-bottom: 1rem;
 }
 
 .produto-detalhes p {
-    margin: 0;
-}
-
-.descricao-detalhes { 
-    font-size: 1.5rem;
-    margin: 0;
+    font-size: 1.5rem; 
+    margin-bottom: 0.5rem;
 }
 
 .btn-comprar {
@@ -477,10 +476,8 @@ footer {
     color: white;
     border: none;
     border-radius: 0.5rem;
-    line-height: 1rem;
     cursor: pointer;
 }
-
 
 .btn-comprar:hover {
     background-color: #0056b3; /

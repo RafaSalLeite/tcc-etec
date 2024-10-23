@@ -25,7 +25,13 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <button class="btn-incrementar" data-id="${item.id_produtos}">+</button>
                             </div>
 
-                            <button class="remover-item" data-id="${item.id_produtos}">Remover</button>
+                            <button class="remover-item" data-id="${item.id_produtos}">
+                            
+                            <span class="material-symbols-outlined">
+                            delete
+                            </span>
+
+                            </button>
                         `;
                         carrinhoItens.appendChild(itemElement);
                         total += item.valor * item.quantidade;

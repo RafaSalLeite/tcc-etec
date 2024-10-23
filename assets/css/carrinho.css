@@ -1,17 +1,31 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background: linear-gradient(to top, #0F0E0E 30%, #0E004F 70%);
+    
 }
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+.main{
+    height: 50rem;
+    width: auto;
+}
 h1 {
     text-align: center;
-    color: #333;
+    color: #ffffff;
 }
 
 #carrinho {
-    background-color: white;
+    background-color: #12111C;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 1px 15px rgba(52, 40, 104, 0.1);
@@ -29,6 +43,7 @@ h1 {
     align-items: center;
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
+    column-gap: 1rem;
 }
 
 .item:last-child {
@@ -37,36 +52,68 @@ h1 {
 
 .item-nome {
     font-weight: bold;
-    color: #333;
+    color: #ffffff;
+}
+
+.item-img{
+    height: 10rem;
+    width: 10rem;
 }
 
 .item-preco {
-    color: #666;
+    color: #c2c2c2;
     font-weight: bold;
 }
 
+.quantidade-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 0.2rem;
+}
+
+.btn-incrementar{
+    width: 1.5rem;
+    height: 1.7rem;
+    border: solid #c4c4c4 0.5px;
+    border-radius: 5px;
+    background-color: #12111C;
+    color: white;
+
+}
+
+.btn-decrementar{
+    width: 1.5rem;
+    height: 1.7rem;
+    border: solid #c4c4c4 0.5px;
+    border-radius: 5px;
+    background-color: #12111C;
+    color: white;
+}
 .item-quantidade {
-    width: 50px;
+    width: 2rem;
     text-align: center;
     padding: 5px;
-    border: 1px solid #ddd;
+    border: 1px solid #c4c4c4;
+    background-color: #12111C;
+    color: white;
     border-radius: 4px;
 }
 
 .remover-item {
-    background-color: #e74c3c;
+    background-color: #000000;
     color: white;
-    border: none;
+    border: solid #c4c4c4 0.5px;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .remover-item:hover {
-    background-color: #c0392b;
+    background-color: #003050;
 }
 
 #carrinho-total {
+    color: white;
     text-align: right;
     font-size: 1.2rem;
     margin-top: 20px;
@@ -87,4 +134,57 @@ h1 {
 
 #finalizar-pedido:hover {
     background-color: #2980b9;
+}
+
+footer {
+    background-color: #0F0E0E;
+    padding: 20px;
+    margin-top: 7rem;
+    position: sticky;
+   
+}
+
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto; 
+    margin-top: 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #8d8d8d;
 }
