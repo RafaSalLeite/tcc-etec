@@ -2,7 +2,7 @@
 // Variáveis da conexão
 $hostname = "localhost";
 $username = "root";
-$password = "1234";
+$password = "";
 $dbname = "e_commerce";
 
 
