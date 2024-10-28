@@ -1,14 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['id_user'])) {
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Você precisa estar logado para acessar o carrinho'
-    ]);
-    exit;
-}
-
 include('../connection/conn.php');
 
 $id_produtos = $_POST['id_produtos'];
