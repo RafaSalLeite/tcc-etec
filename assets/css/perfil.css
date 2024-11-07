@@ -1,18 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Ovo&display=swap');
+
 body{
-    display: grid;
-    justify-content: center;
     margin: 0;
-    padding: 2rem;
-    background-color: rgba(0, 1, 12, 0.932);
+    padding: 0;
+    background: rgb(18, 18, 32);
 }
 
 .perfil{
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    border-radius: 5px;
+    width: 50rem;
+    height: 10rem;
+    background-color: #050710;
+}
+
+.container-welcome{
+    padding-top: 15px;
+    margin-left: 2rem ;
+}
+
+.container-welcome > h1{
+    font-family: "Ovo", serif;
+  font-weight: 400;
+  font-style: normal;
+    color: aliceblue;
+    font-size: 2em;
+    margin: 0;
+}
+
+.container-welcome > h3{
+    font-family: "Ovo", serif;
+  font-weight: 400;
+  font-style: normal;
+    color: rgb(187, 187, 187);
+    margin: 0;
+}
+
+.btn-edit{
+    font-family: "Ovo", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #050710;
+    color: #007bff;
+    border-radius: 5px;
+    border: solid #007bff 0.5px;
+    width: 6rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.btn-edit > img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.container-btn-edit{
+    margin: 2rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.btn-delete{
+    font-family: "Ovo", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #050710;
+    color: rgb(184, 23, 23);
+    border-radius: 5px;
+    border: solid red 0.5px ;
+    width: 9rem;
+    height: 2rem;
+    cursor: pointer;
+}
+
+.btn-delete > img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.container-btn-delete{
+    grid-column: 1 / span 2 ;
+    margin: 2rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.perfil-dados{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% auto auto auto;
+    margin: auto;
     border-radius: 5px;
     width: 50rem;
     height: 30rem;
     background-color: #050710;
 }
 
-.foto-perfil {
-  
+.perfil-dados > h1{
+    grid-column: 1 / span 2;
+    font-family: "Ovo", serif;
+  font-weight: 400;
+  font-style: normal;
+    color: aliceblue;
+    font-size: 2em;
+    margin-left: 2rem;
+    padding-top: 15px;
+}
+
+.nome{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.sobrenome{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.email{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.senha{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.telefone{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.campo > label{
+    font-size: 20px;
+    color: white;
+    margin: 5px;
+}
+
+.imput-cadastro{
+    cursor: default;
+    color: white;
+    border-radius: 5px;
+    padding-inline: 10px;
+    width: 15rem;
+    height: 2rem;
+    border: solid white 0.5px;
+    background-color: #050710;
 }

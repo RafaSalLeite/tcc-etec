@@ -8,11 +8,62 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
 </head>
 <body>
+    
     <div class="perfil">
-        <div><img class="foto-perfil" src="assets/img/account_circle_200dp_E8EAED_FILL0_wght400_GRAD-25_opsz20.png" alt="">
-        <hr>
-
+        <div class="container-welcome">
+            <h1>OLÁ USUÁRIO</h1>
+            <h3>tantantan@gmail.com</h3>
+        </div>
+        <div class="container-btn-edit">
+            <button class="btn-edit"><img src="assets/img/Edit.png" alt="">Editar</button>
+        </div>
+        <div class="container-btn-delete">
+            <button class="btn-delete"><img src="assets/img/Delete.png" alt="">Deletar Conta</button>
+        </div>
     </div>
+
+    <div class="perfil-dados">
+        <h1>Dados Pessoais</h1>
+        <div class="nome">
+            <div class="campo">
+                <label for="nome">Nome</label><br>
+                <input class="imput-cadastro" placeholder="Tantantan" type="text" id="nome" name="nome"
+                    required>
+            </div>   
+        </div>
+
+        <div class="sobrenome">
+            <div class="campo">
+                <label for="sobrenome">Sobrenome</label><br>
+                <input class="imput-cadastro" placeholder="Tantan" type="text" id="sobrenome"
+                    name="sobrenome" required>
+            </div>
+        </div>
+
+        <div class="email">
+            <div class="campo">
+                <label for="email">Email</label><br>
+                <input class="imput-cadastro" placeholder="tantantan@gmail.com" type="email" id="email" name="email"
+                    required>
+            </div>
+        </div>
+
+        <div class="senha">
+            <div class="campo">
+                <label for="senha">Senha</label><br>
+                <input class="imput-cadastro" placeholder="tan***" type="password" id="senha"
+                    name="senha" required>
+            </div>
+        </div>
+        <div class="telefone">
+            <div class="campo">
+                <label for="telefone">Telefone</label><br>
+                <input class="imput-cadastro" type="tel" id="telefone" name="telefone"
+                    pattern="[0-9]{2}[0-9]{5}[0-9]{4}" placeholder="(15)9999-9999" required>
+            </div> 
+        </div>
+    </div>
+
     
 </body>
 </html>
