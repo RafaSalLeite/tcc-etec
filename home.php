@@ -1,9 +1,14 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+if (!isset($_SESSION['id_user'])) {
+    header('Location: index.html');
+    exit; 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TCC angel lock</title>
@@ -23,7 +28,7 @@
 
     <header class="header">
         <div class="grid-logo">
-            <a href="home.html"><img src="assets/img/Logo.svg" class="logo"></a>
+            <a href="home.php"><img src="assets/img/Logo.svg" class="logo"></a>
 
         </div>
         <!--parte de pesquisar produtos aqui-->
@@ -34,6 +39,10 @@
         <div class="grid-login">
             <a href="perfil.html" class="btn-login"><i class="fas fa-user"></i></a>
             <a href="meucarrinho.html" class="btn-cadastro"><i class="fas fa-shopping-cart"></i> </a>
+
+            <form action="backend/models/logout.php" method="post" class="logout-form">
+            <button type="submit" class="btn-logout"><i class="fas fa-sign-out-alt"></i></button>
+            </form>
         </div>
 
     </header>

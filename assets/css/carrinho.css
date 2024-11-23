@@ -213,3 +213,157 @@ footer {
     font-size: 0.9em;
     color: #8d8d8d;
 }
+
+/*overlay - rafa*/
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8); 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    z-index: 999; /*essa parte não pode mudar, é o que faz ele ficar encima de tudo*/
+    visibility: hidden;
+}
+
+/*parte do endereço*/
+
+#endereco-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    margin: auto;
+    border-radius: 5px;
+    width: 50rem;
+    
+    background-color: #050710;
+    gap: 1rem;
+}
+
+.endereco-h1 {
+    grid-column: 1 / span 2;
+    font-family: "Ovo", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: aliceblue;
+    font-size: 2em;
+    margin-left: 2rem;
+    padding-top: 15px;
+}
+
+.endereco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1a1d29;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    border: solid white 0.5px;
+    width: 18rem;
+    text-align: center;
+    margin: auto;
+}
+
+.endereco > p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.nenhum {
+    grid-column: 1 / span 2;
+    font-family: "Ovo", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: aliceblue;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    padding-top: 15px;
+}
+
+/*parte do botão */
+.container-btn-finalizar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Espaçamento entre os botões */
+    margin-top: 1rem;
+}
+
+.btn-confirmar-endereco,
+.btn-fechar-modal {
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-family: "Ovo", serif;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+    background-color: #1a1d29; /* Cor de fundo semelhante aos cards */
+    border: 1px solid white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-confirmar-endereco:hover,
+.btn-fechar-modal:hover {
+    background-color: #3a3d4f; /* Um cinza mais claro para hover */
+    transform: scale(1.05);
+}
+
+.btn-confirmar-endereco:active,
+.btn-fechar-modal:active {
+    background-color: #282b3c; /* Cor levemente mais escura no click */
+    transform: scale(1);
+}
+
+.btn-confirmar-endereco {
+    background-color: #007bff; /* Cor azul para destaque */
+    border-color: #007bff;
+}
+
+.btn-confirmar-endereco:hover {
+    background-color: #0056b3; /* Azul mais escuro no hover */
+}
+
+.btn-fechar-modal {
+    background-color: #dc3545; /* Cor vermelha para o botão de cancelar */
+    border-color: #dc3545;
+}
+
+.btn-fechar-modal:hover {
+    background-color: #b21f2d; /* Vermelho mais escuro no hover */
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

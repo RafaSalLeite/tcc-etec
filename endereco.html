@@ -12,6 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
         <link rel="shortcut icon" type="imagex/png" href="assets/img/angelock-favicon.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -22,24 +23,15 @@
            
         </div>
         <div class="grid-search">
-            <input type="search" class="pesquisa" placeholder="Pesquise produtos aqui">
-            <button class="btn-source"><img src="assets/img/svgs/search-btn.svg" class="search"></button>
+           
         </div>
         <div class="grid-login">
-            <a href="login.html" class="btn-login">Login</a>
-            <a href="cadastro.html" class="btn-cadastro">Cadastro</a>
+            <a href="home.php" class="btn-login"><i class="fas fa-house"></i></a>
+            <a href="meucarrinho.html" class="btn-cadastro"><i class="fas fa-shopping-cart"></i> </a>
         </div>
         
     </header>
 
-    <nav class="nav">
-        <button class="menu-btn"><img src="assets/img/svgs/menu-btn.svg" class="search"></button>
-        <a class="btn-prod" href="#">Câmera</a>
-        <a class="btn-prod" href="#">Alarme</a>
-        <a class="btn-prod" href="#">Concertina</a>
-        <a class="btn-prod" href="#">Cerca Elétrica</a>
-        <a class="btn-prod" href="#">DVR</a>
-    </nav>
 
     <div class="container-conta">
         <div class="criar-conta">
@@ -52,33 +44,37 @@
                     <div class="campo">
                         <label for="nome">Tipo endereço</label>
                                 <select id="tipoEndereco" name="tipoEndereco">
-                                <option value="residencial"></option>
                                 <option value="residencial">Residêncial</option>
                                 <option value="comercial">Comercial</option>
                                 </select>
 
                     </div>
                     <div class="campo">
-                        <label for="sobrenome">CEP</label>
-                        <input class="imput-cep" type="text" id="cep" maxlength="9" placeholder="XXXXX-XXX">
+                        <label for="cep">CEP</label>
+                        <input class="imput-cep" type="text" id="cep" name="cep" maxlength="9" placeholder="XXXXX-XXX">
                     </div>
                 </div>
 
                 <div class="nome-sobrenome">
                     <div class="campo">
                         <label for="cidade">Cidade</label>
-                        <input class="imput-cep" placeholder="Digite sua cidade" type="text" id="nome" name="nome" required>
+                        <input class="imput-cep" placeholder="Digite sua cidade" type="text" id="cidade" name="cidade" required>
                     </div>
                     <div class="campo">
-                        <label for="sobrenome">bairro</label>
-                        <input class="imput-cep" placeholder="Digite seu bairro" type="text" id="sobrenome" name="sobrenome"
+                        <label for="bairro">bairro</label>
+                        <input class="imput-cep" placeholder="Digite seu bairro" type="text" id="bairro" name="bairro"
                             required>
                     </div> 
                 </div>
 
                 <div class="campo">
-                    <label for="cidade">Rua</label>
-                    <input class="imput-cep" placeholder="Digite sua rua" type="text" id="nome" name="nome" required>
+                    <label for="rua">Rua</label>
+                    <input class="imput-cep" placeholder="Digite sua rua" type="text" id="rua" name="rua" required>
+                </div>
+
+                <div class="campo">
+                    <label for="numero">Número</label>
+                    <input class="imput-cep" placeholder="Digite o numero" type="number" id="numero" name="numero">
                 </div>
                 <input class="btn-cad" type="submit" value="Cadastrar">
             </div>

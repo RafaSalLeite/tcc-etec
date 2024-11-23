@@ -6,6 +6,128 @@ body{
     background: rgb(18, 18, 32);
 }
 
+
+.header {
+    width: 100%;
+    height: 5rem;
+    left: 0px;
+    top: 0px;
+    background-color: #050710;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    position: sticky;
+}
+
+
+.logo {
+    width: 19rem;
+    height: auto;
+
+}
+
+.grid-logo{
+    padding-left: 4rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.pesquisa {
+    background: none;
+    box-sizing: border-box;
+    height: 2rem;
+    width: 25rem;
+    border: 0.5px solid rgba(252, 252, 252, 0.5);
+    border-radius: 8px 0 0px 8px;
+    color: white;
+    padding-inline: 1rem;
+
+}
+
+.pesquisa::placeholder {
+    color: white;
+
+}
+
+/*coisa do botao de pesquisa do nosso best*/
+#containerPesquisa{
+    background-color: white;
+    max-width: 100%;
+    margin: auto;
+}
+
+#results{
+    margin-top: 1 rem;
+    border: 0.1rem solid #ccc;
+    max-height: 20rem;
+    overflow-y: auto;
+}
+
+#results div{
+    padding: 1rem;
+    border-bottom: 0.1rem solid #ddd;
+    cursor:pointer;
+   
+}
+
+#results div:hover{
+    background-color: #f0f0f0;
+}
+
+.search {
+    height: 1.4rem;
+    width: 1.4rem;
+
+}
+
+.grid-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-source {
+    background: none;
+    height: 2rem;
+    width: 3rem;
+    border: 0.5px solid rgba(252, 252, 252, 0.5);
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+}
+
+.btn-login {
+    background: none;
+    height: 2rem;
+    width: 9rem;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    border: 0.5px solid rgba(252, 252, 252, 0.5);
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+}
+
+.btn-cadastro {
+    background: linear-gradient(91.53deg, #231EFF 0%, #2900cd 100%);
+    height: 2rem;
+    width: 9rem;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    border: 0.5px solid rgba(252, 252, 252, 0.5);
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+}
+.grid-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .perfil{
     margin: auto;
     margin-top: 5rem;
@@ -18,6 +140,7 @@ body{
     height: 10rem;
     background-color: #050710;
 }
+
 
 .container-welcome{
     padding-top: 15px;
@@ -171,4 +294,112 @@ body{
     height: 2rem;
     border: solid white 0.5px;
     background-color: #050710;
+}
+
+/*endereço*/
+#perfil-container{
+    margin: 3rem;
+}
+
+#endereco-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    margin: auto;
+    border-radius: 5px;
+    width: 50rem;
+    
+    background-color: #050710;
+    gap: 1rem;
+}
+
+.endereco-h1 {
+    grid-column: 1 / span 2;
+    font-family: "Ovo", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: aliceblue;
+    font-size: 2em;
+    margin-left: 2rem;
+    padding-top: 15px;
+}
+
+.endereco {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #1a1d29;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    border: solid white 0.5px;
+    width: 18rem;
+    text-align: center;
+    margin: auto;
+}
+
+.endereco > p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.nenhum {
+    grid-column: 1 / span 2;
+    font-family: "Ovo", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: aliceblue;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    padding-top: 15px;
+}
+
+
+.container-btn-delete-endereco {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn-delete-endereco {
+    background-color: #d9534f;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.btn-delete-endereco img {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-delete-endereco:hover {
+    background-color: #c9302c;
+}
+
+.btn-add-endereco {
+    grid-column: 1 / span 2;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.btn-add-endereco:hover {
+    background-color: #31b0d5;
 }

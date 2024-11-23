@@ -3,67 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Perfil do Usuário</title>
     <link rel="stylesheet" href="assets/css/perfil.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     
-    <div class="perfil">
-        <div class="container-welcome">
-            <h1>OLÁ USUÁRIO</h1>
-            <h3>tantantan@gmail.com</h3>
-        </div>
-        <div class="container-btn-edit">
-            <button class="btn-edit"><img src="assets/img/Edit.png" alt="">Editar</button>
-        </div>
-        <div class="container-btn-delete">
-            <button class="btn-delete"><img src="assets/img/Delete.png" alt="">Deletar Conta</button>
-        </div>
-    </div>
+    <header class="header">
+        <div class="grid-logo">
+            <a href="home.php"><img src="assets/img/Logo.svg" class="logo"></a>
 
-    <div class="perfil-dados">
-        <h1>Dados Pessoais</h1>
-        <div class="nome">
-            <div class="campo">
-                <label for="nome">Nome</label><br>
-                <input class="imput-cadastro" placeholder="Tantantan" type="text" id="nome" name="nome"
-                    required>
-            </div>   
+        </div>
+       
+        <div class="grid-search">
+           
+        </div>
+        <div class="grid-login">
+            <a href="home.php" class="btn-login"><i class="fas fa-house"></i></a>
+            <a href="meucarrinho.html" class="btn-cadastro"><i class="fas fa-shopping-cart"></i> </a>
         </div>
 
-        <div class="sobrenome">
-            <div class="campo">
-                <label for="sobrenome">Sobrenome</label><br>
-                <input class="imput-cadastro" placeholder="Tantan" type="text" id="sobrenome"
-                    name="sobrenome" required>
-            </div>
-        </div>
+    </header>
 
-        <div class="email">
-            <div class="campo">
-                <label for="email">Email</label><br>
-                <input class="imput-cadastro" placeholder="tantantan@gmail.com" type="email" id="email" name="email"
-                    required>
-            </div>
-        </div>
-
-        <div class="senha">
-            <div class="campo">
-                <label for="senha">Senha</label><br>
-                <input class="imput-cadastro" placeholder="tan***" type="password" id="senha"
-                    name="senha" required>
-            </div>
-        </div>
-        <div class="telefone">
-            <div class="campo">
-                <label for="telefone">Telefone</label><br>
-                <input class="imput-cadastro" type="tel" id="telefone" name="telefone"
-                    pattern="[0-9]{2}[0-9]{5}[0-9]{4}" placeholder="(15)9999-9999" required>
-            </div> 
-        </div>
-    </div>
-
-    
+    <div id="perfil-container"></div>
+    <div id="endereco-container"></div>
+    <script src="assets/js/perfil.js"></script>
 </body>
 </html>

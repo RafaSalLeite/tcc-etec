@@ -1,6 +1,15 @@
 <?php
 include('../connection/conn.php');
-include('functions.php');
+
+//verifica se o email já existe 
+function conta_existente($conn, $email)
+{
+    $result = "SELECT id_login FROM LOGIN WHERE email = '$email' ";
+    $result = mysqli_query($conn, $result);
+    if (($result) and ($result->num_rows != 0)) {
+        return true;
+    }
+};
 
 // Verifica se o método  é POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -50,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
         
     } else {
-        header('Location:../../cadastro.html');
+        header('Location:../../cadastro.html?error=1');
         
         exit();
     }

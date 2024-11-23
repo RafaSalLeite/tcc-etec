@@ -1,7 +1,8 @@
 $(document).ready(function () {
     $.ajax({
-        url: 'backend/models/produto.php', 
+        url: 'backend/models/produtos.php', 
         type: 'GET',
+        data: { acao: 'todos'},
         dataType: 'json',
         success: function (produtos) {
             const container = $('#container-prod');
@@ -33,8 +34,9 @@ $(document).ready(function () {
     //aqui é a janelinha que ele abre pra exibir o produto tem no index também
     function produtoDetalhado(idProduto) {
         $.ajax({
-            url: `backend/models/mostraproduto.php?id=${idProduto}`,
+            url: `backend/models/produtos.php?id=${idProduto}`,
             type: 'GET',
+            data: { acao: 'produto' }, 
             dataType: 'json',
             success: function (produto) {
                 const detalhesProduto = `
@@ -69,12 +71,12 @@ $(document).ready(function () {
 
     //função adicionar ao carrinho
     function adicionarAoCarrinho(produtoId, quantidade) {
-        fetch('backend/models/add_carrinho.php', {
+        fetch('backend/models/carrinho.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: `id_produtos=${produtoId}&quantidade=${quantidade}`
+            body: `acao=add&id_produtos=${produtoId}&quantidade=${quantidade}`
         })
         .then(response => response.json())
         .then(data => {

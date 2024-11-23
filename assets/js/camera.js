@@ -41,9 +41,10 @@ $(document).ready(function () {
     
     function produtoDetalhado(idProduto) {
         $.ajax({
-            url: `backend/models/mostraproduto.php?id=${idProduto}`,
+            url: `backend/models/produtos.php?id=${idProduto}`,
             type: 'GET',
             dataType: 'json',
+            data: { acao: 'produto' },
             success: function (produto) {
                 const detalhesProduto = `
                 <div class="produto-detalhes">
@@ -56,34 +57,27 @@ $(document).ready(function () {
                 </div>
                 `;
 
-                
                 $('#overlay').html(detalhesProduto).css('visibility', 'visible');
 
-               
                 $('.btn-fechar').click(function () {
                     $('#overlay').css('visibility', 'hidden');
                 });
 
-               
                 $('.btn-comprar').click(function () {
                     const produtoId = $(this).data('produto-id');
-                    adicionarAoCarrinho(produtoId, 1); 
+                    adicionarAoCarrinho(produtoId, 1);
                 });
-            },
-            error: function (xhr, status, error) {
-                console.error('Erro ao carregar os detalhes do produto:', error);
             }
         });
     }
 
-   
     function adicionarAoCarrinho(produtoId, quantidade) {
-        fetch('backend/models/add_carrinho.php', {
+        fetch('backend/models/carrinho.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: `id_produtos=${produtoId}&quantidade=${quantidade}`
+            body: `acao=add&id_produtos=${produtoId}&quantidade=${quantidade}`
         })
         .then(response => response.json())
         .then(data => {

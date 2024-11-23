@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', function (){
-    const inputPesquisa = document.getElementById('pesquisa'); //pega o input da pesquisa
-    const containerResultado = document.getElementById('containerPesquisa'); //pega o container da pesquisa
+    const inputPesquisa = document.getElementById('pesquisa'); 
+    const containerResultado = document.getElementById('containerPesquisa'); 
 
     inputPesquisa.addEventListener('input', function(){
-        const query = inputPesquisa.value; //pega o valor digitado pelo usuario
-
-        if(query.length > 2){ //aqui se ele tiver digitado mais de 2 letras ai ele vai comecar a "rodar"
-            fetch(`backend/models/pesquisa.php?q=${encodeURIComponent(query)}`) //link do php
+        const query = inputPesquisa.value;
+        if(query.length > 2){ 
+            fetch(`backend/models/pesquisa.php?q=${encodeURIComponent(query)}`) 
             .then(response => response.json())
             .then(data => {
-                containerResultado.innerHTML = ''; //limpa o container 
+                containerResultado.innerHTML = ''; 
 
                 if(data.length > 0){
                     data.forEach(item => {
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function (){
                 console.error('Erro ao buscar os dados: ', error);
             });
         } else{
-            containerResultado.innerHTML = ''; //limpa dnv
+            containerResultado.innerHTML = ''; 
         }
     })
 })

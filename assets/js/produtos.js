@@ -1,7 +1,8 @@
 $(document).ready(function () {
     $.ajax({
-        url: 'backend/models/produto.php',
+        url: 'backend/models/produtos.php',
         type: 'GET',
+        data: { acao: 'todos' },
         dataType: 'json',
         success: function (produtos) {
             const container = $('#container-prod');
@@ -33,8 +34,9 @@ $(document).ready(function () {
 
     function produtoDetalhado(idProduto) {
         $.ajax({
-            url: `backend/models/mostraproduto.php?id=${idProduto}`,
+            url: `backend/models/produtos.php?id=${idProduto}`,
             type: 'GET',
+            data: { acao: 'produto' },
             dataType: 'json',
             success: function (produto) {
                 const detalhesProduto = `
@@ -68,24 +70,7 @@ $(document).ready(function () {
     }
 
     // Função para adicionar ao carrinho
-    function adicionarAoCarrinho(produtoId, quantidade) {
-        fetch('backend/models/add_carrinho.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: `id_produtos=${produtoId}&quantidade=${quantidade}`
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                Swal.fire({
-                    title: 'Sucesso!',
-                    text: 'Item adicionado ao carrinho com sucesso!',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                });
-            } else if (data.status === 'error' && data.message.includes('logado')) {
+    function adicionarAoCarrinho() {
                 Swal.fire({
                     title: 'Erro!',
                     text: 'Você precisa estar logado para adicionar itens ao carrinho!',
@@ -103,24 +88,5 @@ $(document).ready(function () {
                         window.location.href = 'cadastro.html';
                     }
                 });
-                
-            } else {
-                Swal.fire({
-                    title: 'Erro!',
-                    text: 'Erro ao adicionar item ao carrinho!',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            Swal.fire({
-                title: 'Erro!',
-                text: 'Erro ao processar a requisição!',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        });
     }
 });
