@@ -1,13 +1,10 @@
 use e_commerce;
 
 INSERT INTO produtos (nome, descricao, categoria, valor, quantidade, imagem) VALUES
-('Concertina Flat 45cm - 1,30m', 'A descrição não está disponível no momento', 'concertina', 50.00, 5, 'backend/models/img/concertina1.jpg'),
 ('Wifi Hd 1080p A8 Câmera de Segurança, Câmera Ip Icsee Prova D\'água Infravermelho Externa（Smartcamera-A08）', 'A descrição não está disponível no momento', 'camera', 85.50, 7, 'backend/models/img/camera1.jpg'),
 ('KIT 4 peças Alarme Sensor Magnético Sobrepor Presença Porta Janela com Adesivo Segurança MARAMASHOP', 'A descrição não está disponível no momento', 'alarme', 84.90, 2, 'backend/models/img/alarme1.jpg'),
 ('Kit Cerca Elétrica Rural Eletrificador SR 30 + Cabo Fio Eletroplástico 250m', 'A descrição não está disponível no momento', 'cerca elétrica', 183.70, 3, 'backend/models/img/cercaeletrica1.jpg'),
 ('Kit Dvr Intelbras 8 Canais H.265 6 Câmeras Full Hd 20 Metros', 'A descrição não está disponível no momento', 'dvr', 1115.50, 5, 'backend/models/img/dvr1.jpg'),
-('DVR 4 Canais Intelbras MHDX 1204 AM - Multi HD - IP, HDCVI, HDTVI, AHD e Analógica - ONVIF', 'detecção inteligente de pessoas e veículos compatibilidade com o protocolo Onvif modo NVR converte todos os canais BNC em IP função BNC + IP adiciona câmeras IP ao DVR', 'dvr', 479.00, 1, 'backend/models/img/DVR 4canais.jpg'),
-('Dvr 16 Canais Gravador Digital De Video Mhdx 1216 Intelbras 127/220', 'Sem descrição', 'dvr', 880.00, 1, 'backend/models/img/DVR 16canais.webp'),
 ('DVR 4 Canais Intelbras MHDX 1204 AM - Multi HD - IP, HDCVI, HDTVI, AHD e Analógica - ONVIF', 'Sem descrição', 'dvr', 479.00, 1, 'backend/models/img/DVR 4canais.jpg'),
 ('Câmera Inteligente iM7 Full Color Branco Intelbras', 'Sem descrição', 'camera', 471.00, 1, 'backend/models/img/camera2.jpg'),
 ('Camera Segurança Lampada Wifi Pet 360 Visão Noturna Leds Alarme C/rastreio Orbitronic', 'Sem descrição', 'camera', 58.00, 1, 'backend/models/img/camera3.jpg'),

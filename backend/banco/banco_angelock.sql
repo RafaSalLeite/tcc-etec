@@ -16,11 +16,12 @@ primary key(id_user)
 create table endereco(
 id_endereco int auto_increment not null,
 id_user int not null,
-tipo_endereco varchar(25),
-cep int not null,
+tipo_endereco ENUM('residencial', 'comercial'),
+cep varchar(10) not null,
 cidade varchar(25),
 bairro varchar(25),
 rua varchar(25),
+numero int,
 primary key(id_endereco),
 foreign key(id_user) references cadastro(id_user)
 )engine=InnoDB;
@@ -29,8 +30,7 @@ create table login(
 id_login int auto_increment not null,
 email varchar(50) not null,
 senha varchar(25) not null,
-primary key(id_login),
-foreign key(email) references cadastro(email)
+primary key(id_login)
 )engine=InnoDB;
 
 create table produtos(
@@ -64,5 +64,11 @@ primary key(id_pedidos),
 foreign key (id_user) references cadastro(id_user)
 )engine=InnoDB;
 
-select * from carrinho;
+select * from cadastro;
+select * from login;
 
+insert into cadastro (nome, sobrenome, email, senha, telefone, data_criacao)
+values ('rafaela', 'salvajoli', 'rafa.sa.leite@gmail.com', '123456', '14998366484', '2024-11-12');
+
+insert into login (email, senha) 
+values ('rafa.sa.leite@gmail.com', '123456');
