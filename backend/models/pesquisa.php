@@ -7,7 +7,7 @@ if (!isset($_GET['q'])) {
 }
 
 $query = $_GET['q'];
-$sql = "SELECT nome FROM produtos WHERE nome LIKE '%$query%' LIMIT 10";  //aqui ele vai selecionando do banco os que tem o mesmo nome
+$sql = "SELECT nome, id_produtos FROM produtos WHERE nome LIKE '%$query%' LIMIT 10";  //aqui ele vai selecionando do banco os que tem o mesmo nome
 $result = $conn->query($sql);
 
 $results = [];

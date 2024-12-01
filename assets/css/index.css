@@ -51,10 +51,32 @@ body {
 }
 
 /*coisa do botao de pesquisa do nosso best*/
-#containerPesquisa{
-    background-color: white;
+
+/*coisa do botao de pesquisa do nosso best*/
+#containerPesquisa div{
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    background-color: #050710;
+    border: solid #c4c4c4 0.5px;
+    height: 3rem;
+    padding-inline: 1rem;
     max-width: 100%;
     margin: auto;
+    color: white;
+}
+
+#containerPesquisa p{
+    display: flex;
+    align-items: center;
+    background-color: #050710;
+    font-family: Arial, sans-serif;
+    border: solid #c4c4c4 0.5px;
+    height: 3rem;
+    padding-inline: 1rem;
+    max-width: 100%;
+    margin: auto;
+    color: white;
 }
 
 #results{
@@ -73,6 +95,20 @@ body {
 
 #results div:hover{
     background-color: #f0f0f0;
+}
+
+.btn-pesquisa {
+    background: none;
+    height: 2rem;
+    width: 6rem;
+    color: blue;
+    text-decoration: none;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
 }
 
 .search {

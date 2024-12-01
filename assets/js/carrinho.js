@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                     confirmButtonText:  'ok',
                                    
                                 });
-                                mandaremail();
+                                mandaremail(idEndereco);
                                
                             } else {
                                 Swal.fire({
@@ -224,16 +224,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         }
     
-        function mandaremail() {
+        function mandaremail(idEndereco) {
             const preloader = document.getElementById('preloader');
             
             // Exibir o preloader
             preloader.style.display = 'flex';
-
+            
             setTimeout(() => location.reload(), 700);   // Recarrega a página
             
             fetch('backend/models/email.php', {
-                method: 'POST'
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `id_endereco=${idEndereco}`
             })
                 .then(response => response.json())
                 .then(data => {

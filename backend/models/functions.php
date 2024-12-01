@@ -1,8 +1,48 @@
 <?php
-
 //conexão com o banco
 include('../connection/conn.php');
+require_once('src/PHPMailer.php');
+require_once('src/SMTP.php');
+require_once('src/Exception.php');
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
+function emailDespedida($email, $nome_cliente)
+{
+    // Inclui a classe PHPMailer e configurações
+    $mail = new PHPMailer(true);
+
+    try {
+        // Configuração do servidor SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'angelockoficial@gmail.com'; // Seu email
+        $mail->Password = 'q w e b m q b x s l z w q w r j'; 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        // Configurações do email
+        $mail->setFrom('angelockoficial@gmail.com', 'Angelock');
+        $mail->addAddress($email, $nome_cliente);
+
+        // Conteúdo do email
+        $mail->isHTML(true);
+        $mail->Subject = "Sua conta foi deletada!";
+        $mail->Body = "
+            <h2>Olá, $nome_cliente!</h2>
+            <p>Sentimos muito em você partir, mas a família Angelock agradece a confiança e esperamos vê-lo novamente!</p>
+            <p>Até logo, Angelock ❤️</p>
+        ";
+
+        // Envia o email
+        $mail->send();
+        return ["status" => "success", "message" => "Email enviado com sucesso!"];
+    } catch (Exception $e) {
+        return ["status" => "error", "message" => "Erro ao enviar o email: {$mail->ErrorInfo}"];
+    }
+}
 
 //aqui pra pega mais detalhes doe um produto específico
 function produtoDetalhes($id, $conn)
@@ -168,6 +208,18 @@ function deletarEndereco($conn, $id_endereco, $id_user)
 
 function deletarUsuario($conn, $id_user)
 {
+    $query = "SELECT email, nome FROM cadastro WHERE id_user = ?";
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $id_user);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                $user = $result->fetch_assoc();
+                $email = $user['email'];
+                $nome_cliente = $user['nome'];
+                emailDespedida($email, $nome_cliente);
+            }
 
     $tabelas = [ 'pedidos','endereco', 'login', 'cadastro'];
     $sucesso = true;

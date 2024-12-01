@@ -1,4 +1,51 @@
 $(document).ready(function () {
+    const inputPesquisa = document.getElementById('pesquisa');
+    const containerResultado = document.getElementById('containerPesquisa');
+
+    inputPesquisa.addEventListener('input', function () {
+        const query = inputPesquisa.value;
+        if (query.length > 2) {
+            fetch(`backend/models/pesquisa.php?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    containerResultado.innerHTML = '';
+
+                    if (data.length > 0) {
+                        data.forEach(item => {
+                            
+                            const div = document.createElement('div');
+
+                           
+                            const nome = document.createElement('span');
+                            nome.textContent = item.nome;
+
+                            
+                            const btnVerMais = document.createElement('button');
+                            btnVerMais.textContent = 'ver mais';
+                            btnVerMais.classList.add('btn-pesquisa');
+                            btnVerMais.addEventListener('click', function () {
+                                produtoDetalhado(item.id_produtos); 
+                            });
+
+                            // Adicionando os elementos ao container
+                            div.appendChild(nome);
+                            div.appendChild(btnVerMais);
+                            containerResultado.append(div);
+                        });
+                    } else {
+                        containerResultado.innerHTML = `
+                            <p>Nenhum resultado encontrado para sua busca</p>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao buscar os dados: ', error);
+                });
+        } else {
+            containerResultado.innerHTML = '';
+        }
+    });
+    
     $.ajax({
         url: 'backend/models/cercas.php',
         type: 'GET',
