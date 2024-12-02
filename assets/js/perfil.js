@@ -108,10 +108,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                     const preloader = document.getElementById('preloader');
                                     const preloaderText = document.getElementById('preloader-text');
                                     
-                                    // Exibir o preloader e definir mensagem
                                     preloader.style.display = 'flex';
                                     preloaderText.textContent = 'Aguarde um momento, apagando seus dados...';
-                        
+                    
                                     fetch(`backend/models/perfil.php?action=delete&id_user=${data.usuario.id_user}`, { method: 'POST' })
                                         .then(response => response.json())
                                         .then(res => {
@@ -128,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                         })
                                         .catch(error => console.error('Erro ao deletar conta:', error))
                                         .finally(() => {
-                                            preloader.style.display = 'none'; // Ocultar o preloader
+                                            preloader.style.display = 'none';
                                         });
                                 }
                             });

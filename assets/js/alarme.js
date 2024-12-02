@@ -86,9 +86,11 @@ $(document).ready(function () {
                 const detalhesProduto = `
                 <div class="produto-detalhes">
                     <button class="btn-fechar">&times;</button>
-                    <img src="${produto.imagem}" class="img-detalhes">
+                    <div>
+                        <img src="${produto.imagem}" class="img-detalhes">
+                    </div>
                     <h2>${produto.nome}</h2>
-                    <p>${produto.descricao}</p>
+                    <h4>${produto.descricao}</h4>
                     <p>R$ ${produto.valor}</p>
                     <button class="btn-comprar" data-produto-id="${produto.id_produtos}">Comprar</button>
                 </div>

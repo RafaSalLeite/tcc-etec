@@ -68,9 +68,12 @@ if (!isset($_SESSION['id_user'])) {
 
 
     <!--parte que precisa por o banco-->
-    <div id="container-prod" class="container-prod">
-
+    <div class="container-prod-move">
+        <div id="container-prod" class="container-prod"></div>
     </div>
+    
+
+    
     </div>
 
     <div class="titulo-prod">
@@ -81,35 +84,35 @@ if (!isset($_SESSION['id_user'])) {
         <div class="cat">
             <div class="categoria">
                 <a href="cameras.html">
-                    <p class="desc-img-cam">Câmeras <img src="assets/img/camera.png" class="img-cat">
+                    <p class="desc-img-cam">Câmeras </p><img src="assets/img/camera.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="alarmes.html">
-                    <p class="desc-img-cam">Alarmes <img src="assets/img/alarme.png" class="img-cat">
+                    <p class="desc-img-cam">Alarmes </p><img src="assets/img/alarme.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="concertina.html">
-                    <p class="desc-img-cam">Concertinas <img src="assets/img/concertina.png" class="img-cat">
+                    <p class="desc-img-cam">Concertinas </p><img src="assets/img/concertina.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="cerca_eletrica.html">
-                    <p class="desc-img-cam">Cerca Elétrica <img src="assets/img/cerca.png" class="img-cat">
+                    <p class="desc-img-cam">Cerca Elétrica </p><img src="assets/img/cerca.png" class="img-cat">
                 </a>
             </div>
         </div>
         <div class="cat">
             <div class="categoria">
                 <a href="dvr.html">
-                    <p class="desc-img-cam">DVR <br> <img src="assets/img/DVR.png" class="img-cat">
+                    <p class="desc-img-cam">DVR</p> <img src="assets/img/DVR.png" class="img-cat">
                 </a>
             </div>
         </div>

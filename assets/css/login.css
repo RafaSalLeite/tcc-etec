@@ -31,29 +31,6 @@ body {
     align-items: center;
 }
 
-.pesquisa {
-    background: none;
-    box-sizing: border-box;
-    height: 2rem;
-    width: 25rem;
-    border: 0.5px solid rgba(252, 252, 252, 0.5);
-    border-radius: 8px 0 0px 8px;
-    color: white;
-    padding-inline: 1rem;
-
-}
-
-.pesquisa::placeholder {
-    color: white;
-
-}
-
-.search {
-    height: 1.4rem;
-    width: 1.4rem;
-
-}
-
 .grid-search{
     display: flex;
     justify-content: center;
@@ -107,27 +84,6 @@ body {
     background-attachment: scroll;
     background-color: #050710;
     height: 2.5rem;
-}
-
-.menu-btn {
-    background: none;
-    height: auto;
-    width: 3rem;
-    border-style: none;
-    cursor: pointer;
-    margin-left: 3rem;
-}
-
-.btn-prod {
-    color: white;
-    margin-left: 2rem;
-    text-decoration: none;
-    font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
-}
-
-a:hover {
-    color: #583cc7;
 }
 
 .container-conta {

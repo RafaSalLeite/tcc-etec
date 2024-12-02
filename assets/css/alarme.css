@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -106,14 +108,6 @@ body {
     align-items: center;
 }
 
-.btn-source {
-    background: none;
-    height: 2rem;
-    width: 3rem;
-    border: 0.5px solid rgba(252, 252, 252, 0.5);
-    border-radius: 0px 8px 8px 0px;
-    cursor: pointer;
-}
 .btn-pesquisa {
     background: none;
     height: 2rem;
@@ -125,6 +119,16 @@ body {
     font-size: 1rem;
     border: none;
     border-radius: 8px 0 0 8px;
+    cursor: pointer;
+}
+
+
+.btn-source {
+    background: none;
+    height: 2rem;
+    width: 3rem;
+    border: 0.5px solid rgba(252, 252, 252, 0.5);
+    border-radius: 0px 8px 8px 0px;
     cursor: pointer;
 }
 
@@ -159,23 +163,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/*botão logout não aguento mais gente*/
-.btn-logout {
-    background: none;
-    height: 2rem;
-    width: 3rem;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
-    border: 0.5px solid rgba(252, 252, 252, 0.5);
-    border-radius: 8px;
-    cursor: pointer;
-    margin-left: 1rem; 
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav {
@@ -313,40 +300,12 @@ a:hover {
    
 }
 
-.container-prod-move{
-    width: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.container-prod {
+.container-prod{
     margin-top: 3rem;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); 
-    gap: 2rem;
-}
-
-
-.produto {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    transition: transform 0.2s; 
-    overflow: hidden; 
-}
-
-.img-cam{
-    height: 15rem;
-    width: 15rem;
-}
-
-.produto:hover {
-    transform: scale(1.05); 
-}
-
-.produto img {
-    max-width: 15rem; 
-    height: 15rem; 
+    grid-column: 1 / span 5;
+    grid-row: 3;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .produto{
@@ -358,6 +317,12 @@ a:hover {
     border: 0.1rem solid white;
 }
 
+
+
+.img-cam{
+    height: 15rem;
+    width: 15rem;
+}
 
 .container-desc-cam{
     display: flex;
@@ -377,18 +342,12 @@ a:hover {
     text-overflow:ellipsis;
 }
 
-.desc-img-cam-cat:hover{
-    color: #583cc7;
-}
-
-.desc-img-cam-cat {
-    color: white;
+.desc-img-cat{
     font-size: 1.2rem;
+    color: aliceblue;
     font-family: "Poppins", sans-serif;
 }
-.categoria > a{
-    text-decoration: none;
-}
+
 
 
 .cat {
@@ -396,20 +355,16 @@ a:hover {
     display: grid;
     grid-template-rows: auto auto;
     background-color: #101011;
-    height: 17rem;
-    width: 17rem;
+    height: 15rem;
+    width: 15rem;
     border: 0.1rem solid white;
 }
 
-.container-cat{
-    margin-top: 3rem;
-    grid-column: 1 / span 5;
-    grid-row: 3;
-    display: flex;
-    justify-content: space-evenly;
+.categoria{
+    font-size: 1.2rem;
+    color: aliceblue;
+    font-family: "Poppins", sans-serif;
 }
-
-
 .img-cat{
     height: 12rem;
     width: 12rem;
@@ -561,6 +516,17 @@ footer {
     border-radius: 0.5rem;
     line-height: 1rem;
     cursor: pointer;
+}
+
+.span-comprar{
+    text-align: left;
+    font-size: 1.2em;
+    color: white;
+}
+
+.span-comprar small{
+    font-size: 0.7rem ;
+    color: white;
 }
 
 .btn-comprar:hover {
