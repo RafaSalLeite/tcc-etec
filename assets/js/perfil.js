@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             isEditing = !isEditing;
                         });
     
+                        //botão do delete
                         document.querySelector('.btn-delete').addEventListener('click', () => {
                             Swal.fire({
                                 title: 'Tem certeza?',
@@ -104,7 +105,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                 cancelButtonText: 'Cancelar'
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    fetch(`backend/models/perfil.php?action=delete&id_user=${data.usuario.id_user}`)
+                                    const preloader = document.getElementById('preloader');
+                                    const preloaderText = document.getElementById('preloader-text');
+                                    
+                                    // Exibir o preloader e definir mensagem
+                                    preloader.style.display = 'flex';
+                                    preloaderText.textContent = 'Aguarde um momento, apagando seus dados...';
+                        
+                                    fetch(`backend/models/perfil.php?action=delete&id_user=${data.usuario.id_user}`, { method: 'POST' })
                                         .then(response => response.json())
                                         .then(res => {
                                             Swal.fire({
@@ -113,13 +121,19 @@ document.addEventListener('DOMContentLoaded', function () {
                                                 icon: res.status === 'success' ? 'success' : 'error',
                                                 confirmButtonText: 'OK'
                                             }).then(() => {
-                                                if (res.status === 'success') window.location.href = 'index.html';
+                                                if (res.status === 'success') {
+                                                    window.location.href = 'index.html';
+                                                }
                                             });
                                         })
-                                        .catch(error => console.error('Erro ao deletar conta:', error));
+                                        .catch(error => console.error('Erro ao deletar conta:', error))
+                                        .finally(() => {
+                                            preloader.style.display = 'none'; // Ocultar o preloader
+                                        });
                                 }
                             });
                         });
+                                             
                     } else {
                         perfilContainer.innerHTML = `<p class="nenhum">Erro ao carregar perfil do usuário. Tente novamente mais tarde.</p>`;
                     }
@@ -155,12 +169,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     enderecoHTML += `<button class="btn-add-endereco">+ Adicionar Endereço</button>`;
                     enderecoContainer.innerHTML = enderecoHTML;
 
-                    // Evento para adicionar endereço
+                   
                     document.querySelector('.btn-add-endereco').addEventListener('click', () => {
                         window.location.href = 'endereco.html';
                     });
 
-                    // Eventos para deletar endereços
+                   
                     document.querySelectorAll('.btn-delete-endereco').forEach(button => {
                         button.addEventListener('click', () => {
                             const enderecoId = button.getAttribute('data-id');
@@ -181,7 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Função para deletar endereço
+    
     function deletarEndereco(idEndereco) {
         fetch(`backend/models/endereco.php?action=deletar&id_endereco=${idEndereco}`, { method: 'POST' })
             .then(response => response.json())

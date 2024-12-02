@@ -10,6 +10,7 @@ if (isset($_GET['action'])) {
         $id_user = $_GET['id_user'];
 
         if ($id_user) {
+            
             deletarUsuario($conn, $id_user);
             session_destroy();
         } else {

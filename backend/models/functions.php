@@ -218,9 +218,9 @@ function deletarUsuario($conn, $id_user)
                 $user = $result->fetch_assoc();
                 $email = $user['email'];
                 $nome_cliente = $user['nome'];
-                emailDespedida($email, $nome_cliente);
             }
-
+            
+   
     $tabelas = [ 'pedidos','endereco', 'login', 'cadastro'];
     $sucesso = true;
 
@@ -238,20 +238,25 @@ function deletarUsuario($conn, $id_user)
             mysqli_stmt_bind_param($stmt, "i", $id_user);
             if (!mysqli_stmt_execute($stmt)) {
                 $sucesso = false;
-                break;
+               
             }
-            mysqli_stmt_close($stmt);
+            
         } else {
             $sucesso = false;
-            break;
+           
         }
     }
 
+    emailDespedida($email, $nome_cliente);
+
     if ($sucesso) {
         echo json_encode(["status" => "success", "message" => "Usuário deletado com sucesso."]);
+       
     } else {
         echo json_encode(["status" => "error", "message" => "Erro ao deletar usuário."]);
     }
+
+    
 }
 
 

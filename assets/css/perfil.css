@@ -403,3 +403,47 @@ body{
 .btn-add-endereco:hover {
     background-color: #31b0d5;
 }
+
+/*parte do preloder*/
+#preloader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    animation: spin 1s linear infinite;
+}
+
+#preloader-text {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #555;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
