@@ -426,28 +426,35 @@ footer {
 
 .produto-detalhes {
     display: grid;
+    gap: 1rem;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 47% 10% 29% 14%;
+    grid-template-rows: max-content max-content max-content 14%;
     padding: 2rem;
-    width: 50rem;
-    height: 28rem;
+    max-width: 50rem;
+    max-height: 40rem;
     margin: 0 auto;
     background-color: #ffffff;
     border-radius: 0.5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
-.preco-detalhes{
-    font-family: "Ubuntu Mono", monospace;
+.produto-detalhes > p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2em;
     margin: 0;
     font-weight: 800;
-    color: #469fff;
+}
+
+.produto-detalhes > div{
+    display: flex;
+    grid-row: 1 / span 4;
+    align-items: center;
+    justify-content: center;
 }
 
 .img-detalhes {
-    grid-row: 1 / span 4;
-    width: 20rem; 
+    max-height: 20rem;
+    max-width: 20rem; 
     border-radius: 0.5rem;
 }
 
@@ -462,6 +469,9 @@ footer {
 }
 
 .btn-comprar {
+    width: 25rem;
+    height: 3rem;
+    grid-column: 2;
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     background-color: #007bff;
